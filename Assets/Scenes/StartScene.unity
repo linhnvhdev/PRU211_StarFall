@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 621333191}
   - component: {fileID: 621333190}
   - component: {fileID: 621333194}
+  - component: {fileID: 621333196}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -691,6 +692,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bd4425bc5f2324bb7db6959fda5b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &621333196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621333189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6483a852cec11459f1ac7885697a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &645667558
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +775,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1361804539
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: df0ded5643f6c2543ad8b11c60ed4145, type: 3}
   m_Color: {r: 0.9056604, g: 0.8839824, b: 0.40498397, a: 1}
@@ -772,7 +785,7 @@ SpriteRenderer:
   m_Size: {x: 33.148857, y: 30.823538}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &673744493
@@ -1170,15 +1183,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2071621095
+  m_SortingLayerID: -1978765169
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d29e652908f1eb141a8fcdd4cee79b41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d71e21c5df896d042bbd6cc12a409d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 23.04906, y: 10.498213}
+  m_Size: {x: 23.189928, y: 10.149764}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1192,7 +1205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223887161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0001, y: -0.0001, z: 0}
+  m_LocalPosition: {x: -0.0039, y: 0.0261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1213,6 +1226,7 @@ GameObject:
   - component: {fileID: 1407057503}
   - component: {fileID: 1407057507}
   - component: {fileID: 1407057506}
+  - component: {fileID: 1407057508}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1285,7 +1299,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 621333194}
+      - m_Target: {fileID: 621333196}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: changeGameModeScene
         m_Mode: 1
@@ -1347,8 +1361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba63908404fba44c9751e5c5026a703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSize: 1
-  enlargedSize: 1.2
 --- !u!114 &1407057507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,7 +1378,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1407057506}
+        - m_Target: {fileID: 1407057508}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -1382,7 +1394,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1407057506}
+        - m_Target: {fileID: 1407057508}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -1394,6 +1406,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1407057508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407057501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &1665102032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1432,8 @@ GameObject:
   - component: {fileID: 1665102036}
   - component: {fileID: 1665102035}
   - component: {fileID: 1665102034}
+  - component: {fileID: 1665102038}
+  - component: {fileID: 1665102037}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1516,6 +1544,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665102032}
   m_CullTransparentMesh: 1
+--- !u!114 &1665102037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665102032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1665102038}
+          m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1665102038}
+          m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1665102038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665102032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &2062866367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1615,8 @@ GameObject:
   - component: {fileID: 2062866371}
   - component: {fileID: 2062866370}
   - component: {fileID: 2062866369}
+  - component: {fileID: 2062866372}
+  - component: {fileID: 2062866373}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1638,3 +1727,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062866367}
   m_CullTransparentMesh: 1
+--- !u!114 &2062866372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062866367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
+--- !u!114 &2062866373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062866367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2062866372}
+          m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2062866372}
+          m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
