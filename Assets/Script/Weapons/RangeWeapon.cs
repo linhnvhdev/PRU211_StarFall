@@ -27,16 +27,14 @@ public class RangeWeapon : MonoBehaviour
         firePoint.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         if (Input.GetMouseButtonDown(0))
         {
-            if(weapon.CanAttack)
-            {
-                weapon.Attack();
-                Shoot();
-            }   
+            Shoot();
         }
     }
 
     public void Shoot()
     {
+        if (!weapon.CanAttack) return;
+        weapon.Attack();
         GameObject bullet = Instantiate(bulletPrefab,firePoint.position,firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         bullet.GetComponent<Weapon>().Damage = weapon.Damage;
