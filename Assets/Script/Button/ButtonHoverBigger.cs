@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonHoverBigger : MonoBehaviour
 {
+    //ble ble
     public float normalSize = 1f; // the normal size of the button
     public float enlargedSize = 1.2f; // the size of the button when it's hovered over
     private Vector3 normalScale; // the scale vector for the normal size
