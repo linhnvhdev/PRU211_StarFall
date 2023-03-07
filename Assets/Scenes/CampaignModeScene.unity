@@ -610,6 +610,8 @@ GameObject:
   - component: {fileID: 542116445}
   - component: {fileID: 542116444}
   - component: {fileID: 542116443}
+  - component: {fileID: 542116449}
+  - component: {fileID: 542116448}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -669,7 +671,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 542116443}
+        - m_Target: {fileID: 542116448}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -685,7 +687,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 542116443}
+        - m_Target: {fileID: 542116448}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -741,7 +743,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1643426790}
+      - m_Target: {fileID: 542116449}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: changeGameModeScene
         m_Mode: 1
@@ -791,6 +793,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542116441}
   m_CullTransparentMesh: 1
+--- !u!114 &542116448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542116441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
+--- !u!114 &542116449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542116441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6483a852cec11459f1ac7885697a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &642129969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,14 +1280,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2071621095
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 92a2df71559551f4bbe9056a58127ecf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1d66abe653f91b4f9f406884135d845, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 5.6591735, y: 3.1723206}
+  m_Size: {x: 5.9932075, y: 3.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1273,8 +1301,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022251575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0044, y: 0.0299, z: 151.28348}
-  m_LocalScale: {x: 3.7751753, y: 3.160298, z: 1}
+  m_LocalPosition: {x: 1.65, y: 0.06, z: 151.28348}
+  m_LocalScale: {x: 4.3603272, y: 3.3049805, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1294,6 +1322,7 @@ GameObject:
   - component: {fileID: 1087637771}
   - component: {fileID: 1087637770}
   - component: {fileID: 1087637769}
+  - component: {fileID: 1087637774}
   m_Layer: 5
   m_Name: LevelButton2
   m_TagString: Untagged
@@ -1338,7 +1367,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1087637770}
+        - m_Target: {fileID: 1087637774}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -1354,7 +1383,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1087637770}
+        - m_Target: {fileID: 1087637774}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -1444,7 +1473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2054a66003542c7409e51f3f16e070b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9281f90697252274f84edfab040141eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1462,6 +1491,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087637767}
   m_CullTransparentMesh: 1
+--- !u!114 &1087637774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087637767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &1165502347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1519,7 @@ GameObject:
   - component: {fileID: 1165502350}
   - component: {fileID: 1165502353}
   - component: {fileID: 1165502354}
+  - component: {fileID: 1165502355}
   m_Layer: 5
   m_Name: LevelButton1
   m_TagString: Untagged
@@ -1567,7 +1611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2054a66003542c7409e51f3f16e070b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9281f90697252274f84edfab040141eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1616,7 +1660,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1165502353}
+        - m_Target: {fileID: 1165502355}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -1632,7 +1676,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1165502353}
+        - m_Target: {fileID: 1165502355}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -1644,6 +1688,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1165502355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165502347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &1321897533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1716,7 @@ GameObject:
   - component: {fileID: 1321897537}
   - component: {fileID: 1321897536}
   - component: {fileID: 1321897535}
+  - component: {fileID: 1321897540}
   m_Layer: 5
   m_Name: LevelButton3
   m_TagString: Untagged
@@ -1702,7 +1761,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1321897536}
+        - m_Target: {fileID: 1321897540}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -1718,7 +1777,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1321897536}
+        - m_Target: {fileID: 1321897540}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -1808,7 +1867,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2054a66003542c7409e51f3f16e070b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9281f90697252274f84edfab040141eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1826,6 +1885,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321897533}
   m_CullTransparentMesh: 1
+--- !u!114 &1321897540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321897533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &1495117337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1913,7 @@ GameObject:
   - component: {fileID: 1495117341}
   - component: {fileID: 1495117340}
   - component: {fileID: 1495117339}
+  - component: {fileID: 1495117344}
   m_Layer: 5
   m_Name: LevelButton4
   m_TagString: Untagged
@@ -1884,7 +1958,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1495117340}
+        - m_Target: {fileID: 1495117344}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -1900,7 +1974,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1495117340}
+        - m_Target: {fileID: 1495117344}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -1990,7 +2064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2054a66003542c7409e51f3f16e070b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9281f90697252274f84edfab040141eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2008,6 +2082,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495117337}
   m_CullTransparentMesh: 1
+--- !u!114 &1495117344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495117337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &1643426785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2319,7 @@ GameObject:
   - component: {fileID: 1977310192}
   - component: {fileID: 1977310191}
   - component: {fileID: 1977310190}
+  - component: {fileID: 1977310195}
   m_Layer: 5
   m_Name: LevelButton5
   m_TagString: Untagged
@@ -2275,7 +2364,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1977310191}
+        - m_Target: {fileID: 1977310195}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -2291,7 +2380,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1977310191}
+        - m_Target: {fileID: 1977310195}
           m_TargetAssemblyTypeName: ButtonHoverBigger, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
@@ -2381,7 +2470,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2054a66003542c7409e51f3f16e070b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9281f90697252274f84edfab040141eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2399,6 +2488,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977310188}
   m_CullTransparentMesh: 1
+--- !u!114 &1977310195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977310188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2c20e2fa848be45bb61a63d10d83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 1
+  enlargedSize: 1.2
 --- !u!1 &2025954677
 GameObject:
   m_ObjectHideFlags: 0
