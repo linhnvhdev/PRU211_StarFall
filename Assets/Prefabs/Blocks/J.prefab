@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2942030863115605872}
   - component: {fileID: 6352978774169513600}
+  - component: {fileID: 8601233900375587381}
   m_Layer: 0
   m_Name: J
   m_TagString: Untagged
@@ -57,6 +58,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &8601233900375587381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655971819244020904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f3a45ce14d7fa4e9a8cc0d5a823931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  curentHealth: 0
+  damage: 0
+  score: 0
+  fallSpeed: 0
+  material: 0
+  isTargeted: 0
 --- !u!1 &974329541915523810
 GameObject:
   m_ObjectHideFlags: 0

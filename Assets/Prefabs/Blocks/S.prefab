@@ -343,6 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925290748982606220}
   - component: {fileID: 6093981559745132936}
+  - component: {fileID: 4827576095533794256}
   m_Layer: 0
   m_Name: S
   m_TagString: Untagged
@@ -390,6 +391,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &4827576095533794256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920108635049999663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f3a45ce14d7fa4e9a8cc0d5a823931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  curentHealth: 0
+  damage: 0
+  score: 0
+  fallSpeed: 0
+  material: 0
+  isTargeted: 0
 --- !u!1 &4681392170540009007
 GameObject:
   m_ObjectHideFlags: 0
