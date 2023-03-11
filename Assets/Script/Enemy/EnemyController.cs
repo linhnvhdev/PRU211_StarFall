@@ -54,6 +54,7 @@ public class EnemyController : MonoBehaviour
         {
             EnemyObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
             enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
+            enemy.GetComponent<Rigidbody2D>().gravityScale = enemy.fallSpeed;
             nextSpawnableTime -= spawnRate;
         }
         else
@@ -69,6 +70,7 @@ public class EnemyController : MonoBehaviour
         {
             EnemyObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
             enemy.SetEnemyCustomData(health, damage, score, fallSpeed);
+            enemy.GetComponent<Rigidbody2D>().gravityScale = enemy.fallSpeed;
             nextSpawnableTime -= spawnRate;
         }
         else
