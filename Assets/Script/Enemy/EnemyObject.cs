@@ -22,7 +22,7 @@ public class EnemyObject : MonoBehaviour
                 this.curentHealth = maxHealth;
                 this.damage = 1;
                 this.score = 1;
-                this.fallSpeed = .1f;
+                this.fallSpeed = .1f;               
                 this.material = BlockType.WOOD;
                 break;
             case BlockType.STONE:
