@@ -48,12 +48,12 @@ public class EnemyController : MonoBehaviour
     }
 
     //Spawn enemy theo các thuộc tính default mà t đã đặt
-    private void SpawnEnemyDefault(int prefabIndex, int spawnPointIndex, int rotationIndex, Enum.BlockType material)
+    private void SpawnEnemyDefault(int prefabIndex, int spawnPointIndex, int rotationIndex)
     {
         if (SpawnCheck(_spawnPoint[0], 2f, enemyLayerMask))
         {
             EnemyObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
-            enemy.SetEnemyDefaultData(material);
+            enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
             nextSpawnableTime -= spawnRate;
         }
         else
