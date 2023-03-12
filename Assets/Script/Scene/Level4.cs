@@ -39,6 +39,7 @@ public class Level4 : MonoBehaviour
             GameOver();
             return;
         }
+
         SpawnEnemy();
     }
 
@@ -52,6 +53,8 @@ public class Level4 : MonoBehaviour
     void GameOver()
     {
         Debug.Log("game over");
+        //var bomb = GameObject.FindObjectOfType<BombCore>();
+        //Destroy(bomb);
     }
 
     void SpawnEnemy()
