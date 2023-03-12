@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Enum;
 
@@ -57,6 +58,17 @@ public class EnemyObject : MonoBehaviour
                 this.fallSpeed = .5f;
                 this.material = BlockType.DIAMOND;
                 break;
+        }
+    }
+
+    void Start()
+    {
+        if(material != BlockType.CUSTOM)
+            SetEnemyDefaultData(material);
+        foreach (Transform child in transform)
+        {
+            child.gameObject.AddComponent<EnemyObject>();
+            child.gameObject.GetComponent<EnemyObject>().SetEnemyDefaultData(material);
         }
     }
 
