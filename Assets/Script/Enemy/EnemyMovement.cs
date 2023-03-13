@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {     
         if (!checkBelow() && !isGrounded)
         {
@@ -52,15 +52,6 @@ public class EnemyMovement : MonoBehaviour
         foreach (Transform tr in transform)
         {
             Collider2D collider = Physics2D.OverlapCircle(new Vector2(tr.position.x, tr.position.y - 0.51f), .01f, enemyLayerMask);
-            //GameObject sth = new GameObject();
-            //sth.transform.position = new Vector2(tr.position.x, tr.position.y - 1);
-            //Instantiate(sth);
-            //var lineRender = sth.gameObject.AddComponent<LineRenderer>();
-            //UnityEngine.Debug.Log("LineRender");
-            //lineRender.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
-            //lineRender.sortingOrder = 10;
-            //var drawCircle = sth.gameObject.AddComponent<DrawCircleController>();
-            //drawCircle.range = 0.1f;
             if (collider == null)
             {
                 //return false;

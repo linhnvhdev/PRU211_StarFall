@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] List<Vector2> spawnPoints;
-    [SerializeField] GameObject prefab;
+    [SerializeField] GameObject[] prefab;
+    [SerializeField] float speed;
     private Quaternion[] rotations = { Quaternion.Euler(0, 0, -90),
                                          Quaternion.Euler(0, 0, 0),
                                          Quaternion.Euler(0, 0, 90),
@@ -22,26 +23,24 @@ public class SpawnEnemy : MonoBehaviour
             spawnPoints.Add(new Vector2(i, 20));
         }
         currentTime = startTime;
-        nextSpawnableTime = startTime - spawnRate;
+        nextSpawnableTime = startTime - spawnRate;           
     }
 
     // Update is called once per frame
     void Update()
     {
         currentTime -= Time.deltaTime;
-        for(int i = 0; i <30; i++)
+        if (currentTime < nextSpawnableTime)
         {
-            if(currentTime < nextSpawnableTime)
-            {
-                Spawn();
-            }          
+            Spawn();
         }
     }
 
     private void Spawn()
     {
+        int prefabIndex = Random.Range(0, prefab.Length);
         Vector2 spawnPoint = spawnPoints[Random.Range(0,spawnPoints.Count)];
-        Instantiate(prefab, spawnPoint, rotations[Random.Range(0, 3)]);
+        GameObject block = Instantiate(prefab[prefabIndex], spawnPoint, rotations[Random.Range(0, 3)]);
         nextSpawnableTime -= spawnRate;
     }
 }
