@@ -733,15 +733,15 @@ MonoBehaviour:
   - {fileID: 424113012}
   spawnRate: 1
   nextSpawnableTime: 0
-  bombWaveTime: 150
+  bombWaveTime: 170
   bombSpawnRate: 20
   nextBombSpawnableTime: 0
   bombPrefabIndex: 0
-  lastBombWave: 20
+  lastBombWave: 150
   fallSpeedScale: 1.1
   currentSpeedScale: 1
   timeToIncreaseSpeed: 2
-  nextTimeToIncreaseSpeed: 2
+  nextTimeToIncreaseSpeed: 10
   Player: {fileID: 77467990}
 --- !u!4 &1031087187
 Transform:
