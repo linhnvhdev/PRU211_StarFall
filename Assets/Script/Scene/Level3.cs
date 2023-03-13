@@ -18,8 +18,11 @@ public class Level3 : MonoBehaviour
     public float timeToIncreaseSpeed = 10f;
     public float nextTimeToIncreaseSpeed;
     public GameObject Player;
+
+    private BossLaserGun laserBeamController;
     void Start()
     {
+        laserBeamController = GameObject.Find("LaserSpawnPoint").GetComponent<BossLaserGun>();
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime - spawnRate;
@@ -49,6 +52,14 @@ public class Level3 : MonoBehaviour
             IncreaseFallSpeed();
         }
         SpawnEnemy();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            laserBeamController.ActivateLaserBeam();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            laserBeamController.DeactivateLaserBeam();
+        }
     }
     private void IncreaseFallSpeed()
     {
