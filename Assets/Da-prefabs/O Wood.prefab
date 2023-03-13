@@ -287,7 +287,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4713180079596124656}
-  m_LocalRotation: {x: 0.000008707242, y: -0.0032724363, z: 0.000000028494046, w: 0.99999464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -298,7 +298,7 @@ Transform:
   - {fileID: 6126222559852054658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.001, y: -0.375, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &330266027044686896
 Rigidbody2D:
   serializedVersion: 4
@@ -314,7 +314,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
-  speed: 5
+  speed: 10
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
