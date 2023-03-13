@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTime: 100
   currentTime: 0
-  enemyController: {fileID: 0}
+  enemyController: {fileID: 858820249}
   spawnRate: 1
   nextSpawnableTime: 0
   fallSpeedScale: 1.1
