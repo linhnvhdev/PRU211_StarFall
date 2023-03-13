@@ -262,7 +262,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305954339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+
   m_LocalPosition: {x: -1, y: 9, z: 1.5566655}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -457,7 +459,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728299684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+
   m_LocalPosition: {x: -15, y: 1, z: 1.5566655}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -686,8 +690,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971648301}
+
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -15, y: 9, z: 1.5566655}
+
   m_LocalScale: {x: 1.2375, y: 0.5967187, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -724,6 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e64ced7a3a9efc40b377229efd839d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
   levelTime: 180
   currentTime: 160
   enemyController: {fileID: 1031087188}
@@ -743,6 +750,7 @@ MonoBehaviour:
   timeToIncreaseSpeed: 2
   nextTimeToIncreaseSpeed: 2
   Player: {fileID: 77467990}
+
 --- !u!4 &1031087187
 Transform:
   m_ObjectHideFlags: 0
@@ -1171,7 +1179,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994677011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+
   m_LocalPosition: {x: -1, y: 1, z: 1.5566655}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
