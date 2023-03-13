@@ -36,7 +36,7 @@ public class Level3 : MonoBehaviour
         }
         enemyController._spawnPoint = spawnPointRandom;
     }
-    void Update()
+        void Update()
     {
         currentTime -= Time.deltaTime;
         if (IsGameOver())
