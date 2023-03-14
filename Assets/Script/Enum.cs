@@ -12,4 +12,17 @@ public class Enum
         DIAMOND,
         CUSTOM
     }
+
+    public enum GameState
+    {
+
+    }
+
+    public enum GameStateLv2
+    {
+        SPAWN_RANDOM,
+        SPAWN_WAVE1,
+        SPAWN_WAVE2,
+        SPAWN_WAVE3
+    }
 }
