@@ -45,8 +45,6 @@ public class EnemyControllerLv4 : MonoBehaviour
         if (SpawnCheck(_spawnPoint[spawnPointIndex], 2f, enemyLayerMask))
         {
             GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
-            enemy.GetComponent<EnemyObject>().SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
-            enemy.GetComponent<Rigidbody2D>().gravityScale = enemy.GetComponent<EnemyObject>().fallSpeed;
         }
         else
         {
@@ -59,8 +57,8 @@ public class EnemyControllerLv4 : MonoBehaviour
         if (SpawnCheck(_spawnPoint[spawnPointIndex], 2f, enemyLayerMask))
         {
             GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
-            enemy.GetComponent<EnemyObject>().SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
-            enemy.GetComponent<Rigidbody2D>().gravityScale = enemy.GetComponent<EnemyObject>().fallSpeed * speedScale;
+            //enemy.GetComponent<EnemyObject>().SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
+            enemy.GetComponent<EnemyMovement>().speed *= speedScale;
         }
         else
         {
@@ -68,24 +66,10 @@ public class EnemyControllerLv4 : MonoBehaviour
         }
     }
 
-    public void SpawnEnemyDefault(int prefabIndex, Vector2 spawnPoint, int rotationIndex,float fallspeed = 0.5f)
+    public void SpawnEnemyDefault(int prefabIndex, Vector2 spawnPoint, int rotationIndex,float fallspeed = 3f)
     {
         GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], spawnPoint, rotations[rotationIndex]);
         //enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
-        enemy.GetComponent<Rigidbody2D>().gravityScale = fallspeed;
-    }
-
-    public void SpawnEnemyCustom(int prefabIndex, int spawnPointIndex, int rotationIndex, int health, int damage, int score, float fallSpeed)
-    {
-        if (SpawnCheck(_spawnPoint[spawnPointIndex], 2f, enemyLayerMask))
-        {
-            GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
-            //enemy.SetEnemyCustomData(health, damage, score, fallSpeed);
-            enemy.GetComponent<Rigidbody2D>().gravityScale = fallSpeed;
-        }
-        else
-        {
-            Debug.Log("Unable to spawn");
-        }
+        enemy.GetComponent<EnemyMovement>().speed = fallspeed;
     }
 }

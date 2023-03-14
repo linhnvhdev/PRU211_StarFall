@@ -14,20 +14,22 @@ public class Level4 : MonoBehaviour
     private int numSpawnPointRandom = 20;
 
     public float spawnRate;
-    public float nextSpawnableTime;
+    private float nextSpawnableTime;
 
     public float bombWaveTime;
     public float bombSpawnRate = 40;
-    public float nextBombSpawnableTime;
+    private float nextBombSpawnableTime;
     public int bombPrefabIndex;
 
     public float lastBombWave = 15;
     private bool IsDropBomb = true;
 
-    public float fallSpeedScale = 1.1f;
+    public float defaultSpeed;
+
+    public float fallSpeedScale = 1.2f;
     public float currentSpeedScale = 1f;
     public float timeToIncreaseSpeed = 10f;
-    public float nextTimeToIncreaseSpeed;
+    private float nextTimeToIncreaseSpeed;
     public GameObject Player;
 
     // Start is called before the first frame update
@@ -51,6 +53,11 @@ public class Level4 : MonoBehaviour
         }
         enemyController._spawnPoint = spawnPointRandom;
         bombPrefabIndex = enemyController._enemyPrefabs.Length - 1; // last in spawn point
+
+        foreach(var obj in enemyController._enemyPrefabs)
+        {
+            obj.GetComponent<EnemyMovement>().speed = defaultSpeed;
+        }
     }
 
     // Update is called once per frame
@@ -94,6 +101,7 @@ public class Level4 : MonoBehaviour
     {
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
+        spawnRate -= 0.2f;
     }
 
     private void DropBombRandom()
@@ -102,7 +110,7 @@ public class Level4 : MonoBehaviour
         DebugPoint(curSpawnPoint);
         if (currentTime <= nextBombSpawnableTime)
         {
-            enemyController.SpawnEnemyDefault(bombPrefabIndex, curSpawnPoint, 1,0.5f);
+            enemyController.SpawnEnemyDefault(bombPrefabIndex, curSpawnPoint, 1,2f);
             nextBombSpawnableTime = currentTime - bombSpawnRate;
         }
     }
@@ -112,7 +120,7 @@ public class Level4 : MonoBehaviour
         foreach(var bombPoint in BombSpawnPoint)
         {
             Vector2 curSpawnPoint = (Vector2)bombPoint.position;
-            enemyController.SpawnEnemyDefault(bombPrefabIndex, curSpawnPoint, 1,0.5f);
+            enemyController.SpawnEnemyDefault(bombPrefabIndex, curSpawnPoint, 1, 2f);
             IsDropBomb = false;
         }
     }

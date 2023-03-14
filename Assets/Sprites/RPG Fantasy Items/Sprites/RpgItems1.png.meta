@@ -2225,9 +2225,9 @@ TextureImporter:
       RpgItems1_95: 896143763
       RpgItems1_18: 1403421093
       RpgItems1_54: -1984153409
-      RpgItems1_47: 1512125270
+      RpgItems1_7: -1919730801
       RpgItems1_90: -634464983
-      RpgItems1_81: -230187117
+      RpgItems1_47: 1512125270
       RpgItems1_37: -150084110
       RpgItems1_74: 908421107
       RpgItems1_32: -1947702194
@@ -2316,7 +2316,7 @@ TextureImporter:
       RpgItems1_69: -638850030
       RpgItems1_31: 485934025
       RpgItems1_49: 1641082766
-      RpgItems1_7: -1919730801
+      RpgItems1_81: -230187117
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
