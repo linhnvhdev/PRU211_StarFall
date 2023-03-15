@@ -38,6 +38,6 @@ public class CloseWeapon : MonoBehaviour
 
     public void Attack()
     {
-        transform.Rotate(0f, -180f, 0f);
+        transform.Rotate(180f, 0f, 0f);
     }
 }

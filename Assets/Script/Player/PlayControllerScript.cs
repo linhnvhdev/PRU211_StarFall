@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayControllerScript : MonoBehaviour
 {
@@ -8,36 +10,44 @@ public class PlayControllerScript : MonoBehaviour
     private float speed = 3f;
     private float jumpingPower = 20f;
     private bool isFacingLeft = true;
-
+    public Vector2 scale;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
 
     // Start is called before the first frame update
-
+    private void Start()
+    {
+  
+    }
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+ 
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump") && IsGrounded() )
+        if (Input.GetButtonDown("Jump") && IsGrounded()  )
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+ 
         }
-        else if (Input.GetButtonDown("Jump") && IsOnBlock())
+        
+        else if (Input.GetButtonDown("Jump") && IsOnBlock()  )
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+         }
+        else if (horizontal > 0.5f)
+        {
+            transform.localScale = new Vector2(scale.x*-1, scale.y * 1);
         }
-        //if (mousePos.x < this.transform.position.x && isFacingLeft)
-        //{
-        //    Flip();
-        //}
-        //else if (mousePos.x > this.transform.position.x  && !isFacingLeft)
-        //{
-        //    Flip();
-        //}
+        else if (horizontal <- 0.5f)
+        {
+            transform.localScale = new Vector2(scale.x * 1, scale.y * 1);
+
+        }
+
+        
+
     }
     private void FixedUpdate()
     {
@@ -53,16 +63,7 @@ public class PlayControllerScript : MonoBehaviour
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.19f), CapsuleDirection2D.Horizontal, 0, enemyLayer);
 
     }
-    private void Flip()
-    {
-         
-            isFacingLeft = false;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
-        //transform.Rotate(0f, -180f, 0f);
-         
-    }
+     
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
