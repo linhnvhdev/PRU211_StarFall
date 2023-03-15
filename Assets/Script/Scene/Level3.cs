@@ -6,12 +6,14 @@ public class Level3 : MonoBehaviour
 {
     public float levelTime = 10;
     public float currentTime;
-    public EnemyControllerLv4 enemyController;
+    public EnemyControllerLv3 enemyController;
     private Vector2[] spawnPointRandom;
     private int numSpawnPointRandom = 20;
 
     public float spawnRate;
     public float nextSpawnableTime;
+
+    public float defaultSpeed;
 
     public float fallSpeedScale = 1.1f;
     public float currentSpeedScale = 1f;
@@ -22,7 +24,7 @@ public class Level3 : MonoBehaviour
     private BossLaserGun laserBeamController;
     void Start()
     {
-        laserBeamController = GameObject.Find("LaserSpawnPoint").GetComponent<BossLaserGun>();
+        
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime - spawnRate;
@@ -38,6 +40,10 @@ public class Level3 : MonoBehaviour
             DebugPoint(spawnPointRandom[i]);
         }
         enemyController._spawnPoint = spawnPointRandom;
+        foreach (var obj in enemyController._enemyPrefabs)
+        {
+            obj.GetComponent<EnemyMovement>().speed = defaultSpeed;
+        }
     }
         void Update()
     {
@@ -52,23 +58,17 @@ public class Level3 : MonoBehaviour
             IncreaseFallSpeed();
         }
         SpawnEnemy();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            laserBeamController.ActivateLaserBeam();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            laserBeamController.DeactivateLaserBeam();
-        }
+        
     }
     private void IncreaseFallSpeed()
     {
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
+        spawnRate -= 0.2f;
     }
     void SpawnEnemy()
     {
-        int prefabIndex = Random.Range(0, enemyController._enemyPrefabs.Length - 1);
+        int prefabIndex = Random.Range(0, enemyController._enemyPrefabs.Length);
         int spawnPointindex = Random.Range(0, spawnPointRandom.Length);
         int rotation = Random.Range(0, 4);
         if (currentTime <= nextSpawnableTime)
@@ -87,8 +87,6 @@ public class Level3 : MonoBehaviour
     void GameOver()
     {
         Debug.Log("game over");
-        //var bomb = GameObject.FindObjectOfType<BombCore>();
-        //Destroy(bomb);
     }
     void DebugPoint(Vector2 point)
     {
