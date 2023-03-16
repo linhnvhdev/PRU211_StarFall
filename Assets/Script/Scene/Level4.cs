@@ -165,6 +165,11 @@ public class Level4 : MonoBehaviour
                     return true;
             }
         }
+        if(Player.GetComponentInChildren<Health>().currentHealth <= 0)
+        {
+            Destroy(Player);
+            return true;
+        }
         return false;
     }
 
