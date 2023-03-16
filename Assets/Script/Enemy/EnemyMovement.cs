@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public bool isGrounded = false;
+     public bool isGrounded = false;
     public float speed;
     public LayerMask enemyLayerMask;
     private List<GameObject> collisions = new List<GameObject>();
