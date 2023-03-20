@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CloseWeapon : MonoBehaviour
 {
@@ -29,8 +31,6 @@ public class CloseWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
-             
-              
         }
         
     }
@@ -48,15 +48,17 @@ public class CloseWeapon : MonoBehaviour
             if (!(c.gameObject.tag == "Enemy")) return;
             var enemy = c.GetComponent<EnemyObject>();
             enemy.IsHit(weapon.Damage);
-            if (enemy.IsDestroyed())
+            if(enemy.curentHealth <= 0)
             {
-                var lvPointManager = FindObjectOfType<LevelPointManager>();
-                if(lvPointManager != null)
+                var lvpointManager = FindObjectOfType<LevelPointManager>();
+                if (lvpointManager != null)
                 {
-                    lvPointManager.IncreasePoint(enemy.score);
+                    lvpointManager.totalPoint += enemy.score;
                 }
+                var levelController = FindObjectOfType<PlayerLevelController>();
+                if (levelController != null)
+                    levelController.exp += enemy.score;
             }
-
          }
     }
 }

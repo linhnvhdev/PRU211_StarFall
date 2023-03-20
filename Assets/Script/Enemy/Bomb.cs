@@ -73,12 +73,12 @@ public class Bomb : MonoBehaviour
         UnityEngine.Debug.Log("buum hit " + enemyList.Length);
         foreach (var enemy in enemyList)
         {
-            Debug.Log(enemy.gameObject.name);
+            //Debug.Log(enemy.gameObject.name);
             enemy.gameObject.GetComponent<EnemyObject>().IsHit(damage);
         }
         var player = Physics2D.OverlapCircle((Vector2)transform.position, range, playerLayerMask);
         if(player != null)
-            player.GetComponentInChildren<Health>().TakeDamage(damageToPlayer);
+            player.GetComponentInChildren<Player>().TakeDamage(damageToPlayer);
         Destroy(countdownText);
         Destroy(gameObject);
     }

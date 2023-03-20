@@ -3,33 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knight : MonoBehaviour, IPlayerSkill
+public class Knight : MonoBehaviour, IPlayerType
 {
-    public float timer = 0;
 
+    private float skillHealthIncrease = 3;
+    private float activeTime = 3;
+
+    private Player player;
+    public float passiveHealthIncrease = 1;
 
     public void UseSkill()
     {
-        timer = 0;
         Debug.Log("Using knight skill");
-        
+        StartCoroutine(ActivateSkill());
+    }
+    public void SetBaseStat()
+    {
+        player = GetComponent<Player>();
+        player.IncreaseHealth(passiveHealthIncrease);
     }
 
     IEnumerator ActivateSkill()
     {
-        GetComponent<Health>().currentHealth += 3;
+        float healthBefore = player.currentHealth;
+        player.IncreaseHealth(skillHealthIncrease);
+        yield return new WaitForSeconds(activeTime);
+        if(player.currentHealth > healthBefore)
+        {
+            player.SetHealth(healthBefore);
+        }
+        Debug.Log("after go back: " + player.currentHealth);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        Debug.Log("Knigh time: " + timer);
+
     }
 }

@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,13 +23,16 @@ public class Bullet : MonoBehaviour
         if (!(collision.gameObject.tag == "Enemy")) return;
         var enemy = collision.GetComponent<EnemyObject>();
         enemy.IsHit(weapon.Damage);
-        if (enemy.IsDestroyed())
+        if (enemy.curentHealth <= 0)
         {
-            var lvPointManager = FindObjectOfType<LevelPointManager>();
-            if (lvPointManager != null)
+            var lvpointManager = FindObjectOfType<LevelPointManager>();
+            if (lvpointManager != null)
             {
-                lvPointManager.IncreasePoint(enemy.score);
+                lvpointManager.totalPoint += enemy.score;
             }
+            var levelController = FindObjectOfType<PlayerLevelController>();
+            if (levelController != null)
+                levelController.exp += enemy.score;
         }
         Destroy(gameObject);
     }

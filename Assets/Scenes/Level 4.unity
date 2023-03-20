@@ -185,6 +185,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &342954048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4572779322404682628, guid: 731844c0267b913418830f82025b6ff5, type: 3}
+  m_PrefabInstance: {fileID: 398420720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &342954052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342954048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76b3a521987e1f49bb5ac85a464bae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &398420720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,7 +289,8 @@ PrefabInstance:
       propertyPath: Offset
       value: -135
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4572779322404682625, guid: 731844c0267b913418830f82025b6ff5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 731844c0267b913418830f82025b6ff5, type: 3}
 --- !u!1 &424113011
 GameObject:
@@ -846,11 +864,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPoint: 0
   PointWinGame: 100
-  PointByTime: 4
+  PointByTime: 20
   currentTime: 0
   levelTime: 180
   nextIncreasePointTime: 0
-  pointIncreaseRate: 1
+  pointIncreaseRate: 5
   isGameEnd: 0
 --- !u!1 &1404887434
 GameObject:
@@ -1018,6 +1036,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5530685e09d4b19439419827f055cc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passiveHealthIncrease: 1
+--- !u!114 &1509531776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509531768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de7b7363e0e7fb4c97df5e8c8deded0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 4
+  currentHealth: 0
+  speed: 6
+  jumpingPower: 20
+--- !u!114 &1509531782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509531768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd3ccbecb0224945b7af397c454ee0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 0
+  level: 1
+  nextLevelExp: 10
+  increaseExpRateByLevel: 1.5
+  player: {fileID: 1509531776}
 --- !u!1 &1912193314
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class PlayerSkillController : MonoBehaviour
     public void UseSkill()
     {
         Debug.Log("Use Skill");
-        GetComponent<IPlayerSkill>().UseSkill();
+        GetComponent<IPlayerType>().UseSkill();
         timer = 0;
     }
 }

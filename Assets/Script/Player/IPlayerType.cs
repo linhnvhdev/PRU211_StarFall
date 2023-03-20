@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Assets.Script.Player
 {
-    internal interface IPlayerSkill
+    public interface IPlayerType
     {
         public void UseSkill();
+
+        public void SetBaseStat();
     }
 }

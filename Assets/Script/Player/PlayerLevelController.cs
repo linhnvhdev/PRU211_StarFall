@@ -10,7 +10,7 @@ public class PlayerLevelController : MonoBehaviour
     public int level = 1;
     public int nextLevelExp = 10;
     public float increaseExpRateByLevel = 1.5f;
-    public GameObject player;
+    public Player player;
 
 
     // Start is called before the first frame update
@@ -34,5 +34,6 @@ public class PlayerLevelController : MonoBehaviour
     private void PowerUpPlayer()
     {
         // do something
+        player.currentHealth++;
     }
 }

@@ -128,7 +128,7 @@ public class Level4 : MonoBehaviour
     private void TurnAEnemyToBomb()
     {
         //Debug.Log("player pos:");
-        DebugPoint((Vector2)Player.transform.position);
+        //DebugPoint((Vector2)Player.transform.position);
         if (currentTime > nextLandMineSpawnableTime) return;
         var obj = Physics2D.OverlapCircle((Vector2)Player.transform.position, 3,enemyLayerMask);
         if (obj == null) return;
@@ -190,7 +190,7 @@ public class Level4 : MonoBehaviour
                     return true;
             }
         }
-        if(Player.GetComponentInChildren<Health>().currentHealth <= 0)
+        if(Player.GetComponent<Player>().currentHealth <= 0)
         {
             Destroy(Player);
             return true;
