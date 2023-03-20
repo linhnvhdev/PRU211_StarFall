@@ -8,10 +8,12 @@ public class BossLaserGun : MonoBehaviour
     public float durationTime = 10;
     public float currentTime;
     public int damage = 2;
+    public float range = 3;
     public LayerMask enemyLayerMask;
     public LayerMask playerLayerMask;
     private GameObject countdownText;
-    
+    public int damageToPlayer = 2;
+    public bool isHit = false;
 
     void Start()
     {
@@ -24,6 +26,16 @@ public class BossLaserGun : MonoBehaviour
         lineRender.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
         lineRender.sortingOrder = 10;
         var drawRectangle = gameObject.AddComponent<DrawRectangleController>();
+        float width = GetComponent<SpriteRenderer>().bounds.size.x;
+        Debug.Log("Laser width:" + width);
+        float height = GetComponent<SpriteRenderer>().bounds.size.y;
+        Debug.Log("Laser height:" + height);
+        Vector2 center = transform.position;
+        Debug.Log("Laser center:" + center);
+        Vector2 pointA = new Vector2(center.x - (float)(range + 0.5), center.y + height);
+        Vector2 pointB = new Vector2(center.x + (float)(range + 0.5), center.y - height);
+        var player = Physics2D.OverlapArea(pointA, pointB);
+        
     }
 
     public void Update()
@@ -31,30 +43,28 @@ public class BossLaserGun : MonoBehaviour
         UnityEngine.Debug.Log("Process turn off laser");
         currentTime -= Time.deltaTime;
         UnityEngine.Debug.Log(currentTime);
-      //  countdownText.GetComponent<TextMeshPro>().text = currentTime.ToString("F1");
-      //  countdownText.transform.position = transform.position;
+        float width = GetComponent<SpriteRenderer>().bounds.size.x;
+        Debug.Log("Laser width:" + width);
+        float height = GetComponent<SpriteRenderer>().bounds.size.y;
+        Debug.Log("Laser height:" + height);
+        Vector2 center = transform.position;
+        Debug.Log("Laser center:" + center);
+        Vector2 pointA = new Vector2(center.x - (float)(range + 0.5), center.y + height);
+        Vector2 pointB = new Vector2(center.x + (float)(range + 0.5), center.y - height);
+        var player = Physics2D.OverlapArea(pointA, pointB,playerLayerMask);
+        if (player != null && !isHit)
+        {
+            player.GetComponentInChildren<Player>().TakeDamage(damageToPlayer);
+            isHit = true;
+        }
         if (currentTime <= 0)
         {
             UnityEngine.Debug.Log("start turn off laser");
             TurnOffLaser();
         }
-        
-        //if (durationTime <= 0)
-        //{
-        //    Destroy(countdownText);
-        //    Destroy(gameObject);
-        //}
     }
     private void TurnOffLaser()
     {
-        //var list = Physics2D.OverlapCircleAll((Vector2)transform.position, range, enemyLayerMask);
-        //UnityEngine.Debug.Log("buum hit " + list.Length);
-        //foreach (var enemy in list)
-        //{
-        //    Debug.Log(enemy.gameObject.name);
-        //    enemy.gameObject.GetComponent<EnemyObject>().IsHit(damage);
-        //}
-        //Destroy(countdownText);
         Destroy(gameObject);
     }
 }
