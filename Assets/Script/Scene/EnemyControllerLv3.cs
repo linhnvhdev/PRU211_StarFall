@@ -68,9 +68,26 @@ public class EnemyControllerLv3 : MonoBehaviour
 
     public void SpawnEnemyDefault(int prefabIndex, Vector2 spawnPoint, int rotationIndex, float fallspeed = 3f)
     {
+        Debug.Log("In spawn enemy default");
         GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], spawnPoint, rotations[rotationIndex]);
+        Debug.Log("after spawn");
         //enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
-        enemy.GetComponent<EnemyMovement>().speed = fallspeed;
+        if (enemy.GetComponent<EnemyMovement>() != null)
+        {
+            enemy.GetComponent<EnemyMovement>().speed = fallspeed;
+        }
+    }
+    public void SpawnLaser(int prefabIndex, Vector2 spawnPoint, int rotationIndex, float fallspeed = 3f)
+    {
+        Debug.Log("In spawn enemy default");
+        GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], spawnPoint, rotations[rotationIndex]);
+
+        Debug.Log("after spawn");
+        //enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
+        if (enemy.GetComponent<EnemyMovement>() != null)
+        {
+            enemy.GetComponent<EnemyMovement>().speed = fallspeed;
+        }
     }
 }
 
