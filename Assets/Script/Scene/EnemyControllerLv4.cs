@@ -31,8 +31,8 @@ public class EnemyControllerLv4 : MonoBehaviour
 
     public bool SpawnCheck(Vector2 spawnPoint, float range, LayerMask layerMask)
     {
-        var list = Physics2D.OverlapArea(new Vector2(spawnPoint.x - range, spawnPoint.y - range),
-                                        new Vector2(spawnPoint.x + range, spawnPoint.y + range), layerMask);
+        var list = Physics2D.OverlapArea(new Vector2(spawnPoint.x - range, spawnPoint.y - 3),
+                                        new Vector2(spawnPoint.x + range, spawnPoint.y + 3), layerMask);
         if (list == null)
         {
             return true;
@@ -40,36 +40,65 @@ public class EnemyControllerLv4 : MonoBehaviour
         return false;
     }
 
-    public void SpawnEnemyDefault(int prefabIndex, int spawnPointIndex, int rotationIndex)
+    public bool SpawnEnemyDefault(int prefabIndex, int spawnPointIndex, int rotationIndex)
     {
         if (SpawnCheck(_spawnPoint[spawnPointIndex], 2f, enemyLayerMask))
         {
             GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
+            return true;
         }
         else
         {
             Debug.Log("Unable to spawn");
+            return false;
         }
     }
 
-    public void SpawnEnemyDefaultScaleSpeed(int prefabIndex, int spawnPointIndex, int rotationIndex,float speedScale)
+    public bool SpawnEnemyDefaultScaleSpeed(int prefabIndex, int spawnPointIndex, int rotationIndex,float speedScale)
     {
         if (SpawnCheck(_spawnPoint[spawnPointIndex], 2f, enemyLayerMask))
         {
             GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], _spawnPoint[spawnPointIndex], rotations[rotationIndex]);
             //enemy.GetComponent<EnemyObject>().SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
             enemy.GetComponent<EnemyMovement>().speed *= speedScale;
+            return true;
         }
         else
         {
             Debug.Log("Unable to spawn");
+            return false;
         }
     }
 
-    public void SpawnEnemyDefault(int prefabIndex, Vector2 spawnPoint, int rotationIndex,float fallspeed = 3f)
+    public bool SpawnEnemyDefaultScaleSpeed(int prefabIndex, Vector2 spawnPoint, int rotationIndex, float speedScale)
     {
-        GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], spawnPoint, rotations[rotationIndex]);
-        //enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
-        enemy.GetComponent<EnemyMovement>().speed = fallspeed;
+        if (SpawnCheck(spawnPoint, 2f, enemyLayerMask))
+        {
+            GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], spawnPoint, rotations[rotationIndex]);
+            //enemy.GetComponent<EnemyObject>().SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
+            enemy.GetComponent<EnemyMovement>().speed *= speedScale;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Unable to spawn");
+            return false;
+        }
+    }
+
+    public bool SpawnEnemyDefault(int prefabIndex, Vector2 spawnPoint, int rotationIndex,float fallspeed = 3f)
+    {
+        if (SpawnCheck(spawnPoint, 2f, enemyLayerMask))
+        {
+            GameObject enemy = Instantiate(_enemyPrefabs[prefabIndex], spawnPoint, rotations[rotationIndex]);
+            //enemy.SetEnemyDefaultData(_enemyPrefabs[prefabIndex].GetComponent<EnemyObject>().material);
+            enemy.GetComponent<EnemyMovement>().speed = fallspeed;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Unable to spawn");
+            return false;
+        }
     }
 }

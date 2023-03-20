@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +10,9 @@ public class RangeWeapon : MonoBehaviour
     public Rigidbody2D rb;
     private Weapon weapon;
     public float bulletForce = 20f;
+    public float Offset;
+    public float OffsetFirePoint = -90;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +23,16 @@ public class RangeWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = (mousePosition - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle - 135;
-        firePoint.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float rotZ= Mathf.Atan2(difference.y,difference.x)*Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + Offset);
+        firePoint.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + OffsetFirePoint);
+        //transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
+
     }
 
     public void Shoot()

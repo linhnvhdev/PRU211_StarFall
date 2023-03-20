@@ -12,8 +12,10 @@ public class Bomb : MonoBehaviour
     public float ExploseTime = 10;
     public float currentTime;
     public int range = 2;
-    public int damage = 100;
+    public int damage = 10;
+    public int damageToPlayer = 2;
     public LayerMask enemyLayerMask;
+    public LayerMask playerLayerMask;
     private GameObject countdownText;
     public float bombSpeed = 3f;
 
@@ -22,6 +24,7 @@ public class Bomb : MonoBehaviour
     {
         currentTime = ExploseTime;
         enemyLayerMask = LayerMask.GetMask("Enemy");
+        playerLayerMask = LayerMask.GetMask("Player");
         UnityEngine.Debug.Log("Start");
         // Countdown text
         countdownText = new GameObject("myText");
@@ -59,21 +62,29 @@ public class Bomb : MonoBehaviour
         }
         if (BombCore.IsDestroyed())
         {
-            Destroy(countdownText);
+            //Destroy(countdownText);
             Destroy(gameObject);
         }
     }
 
     private void Explose()
     {
-        var list = Physics2D.OverlapCircleAll((Vector2) transform.position,range, enemyLayerMask);
-        UnityEngine.Debug.Log("buum hit " + list.Length);
-        foreach (var enemy in list)
+        var enemyList = Physics2D.OverlapCircleAll((Vector2) transform.position,range, enemyLayerMask);
+        UnityEngine.Debug.Log("buum hit " + enemyList.Length);
+        foreach (var enemy in enemyList)
         {
             Debug.Log(enemy.gameObject.name);
             enemy.gameObject.GetComponent<EnemyObject>().IsHit(damage);
         }
+        var player = Physics2D.OverlapCircle((Vector2)transform.position, range, playerLayerMask);
+        if(player != null)
+            player.GetComponentInChildren<Health>().TakeDamage(damageToPlayer);
         Destroy(countdownText);
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(countdownText);
     }
 }

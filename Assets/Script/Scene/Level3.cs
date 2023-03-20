@@ -1,17 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Level3 : MonoBehaviour
 {
     public float levelTime = 10;
     public float currentTime;
-    public EnemyControllerLv4 enemyController;
+    public EnemyControllerLv3 enemyController;
     private Vector2[] spawnPointRandom;
+    public Transform[] LaserSpawnPoint;
+    public Transform[] countDonwTextPoint;
+    public int laserAndCountDownTextPointIndex;
+    public GameObject[] countDonwTextPointObject;
     private int numSpawnPointRandom = 20;
 
     public float spawnRate;
     public float nextSpawnableTime;
+
+    public float defaultSpeed;
+
+    public float LaserSpawnRate = 10;
+    public float baseLaserChargeTime = 3;
+    public float LaserChargeTime;
+    public float nextLaserSpawnableTime;
+    public float nextChargeCountDownTime;
+    public int LaserPrefabIndex;
+    public bool hasCreatedCountDownText = false;
 
     public float fallSpeedScale = 1.1f;
     public float currentSpeedScale = 1f;
@@ -22,13 +36,14 @@ public class Level3 : MonoBehaviour
     private BossLaserGun laserBeamController;
     void Start()
     {
-        laserBeamController = GameObject.Find("LaserSpawnPoint").GetComponent<BossLaserGun>();
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime - spawnRate;
-
+        nextLaserSpawnableTime = 95;
+        nextChargeCountDownTime = nextLaserSpawnableTime + baseLaserChargeTime;
         nextTimeToIncreaseSpeed = levelTime - timeToIncreaseSpeed;
-
+        LaserPrefabIndex = enemyController._enemyPrefabs.Length - 1;
+        LaserChargeTime = baseLaserChargeTime;
         // Set spawnPoint
         spawnPointRandom = new Vector2[numSpawnPointRandom];
         for (int i = 0; i < numSpawnPointRandom; i++)
@@ -38,6 +53,14 @@ public class Level3 : MonoBehaviour
             DebugPoint(spawnPointRandom[i]);
         }
         enemyController._spawnPoint = spawnPointRandom;
+        foreach (var obj in enemyController._enemyPrefabs)
+        {
+            if (obj.GetComponent<EnemyMovement>() != null)
+            {
+                obj.GetComponent<EnemyMovement>().speed = defaultSpeed;
+            }
+        }
+        UnityEngine.Debug.Log("before textmesh");
     }
         void Update()
     {
@@ -52,23 +75,67 @@ public class Level3 : MonoBehaviour
             IncreaseFallSpeed();
         }
         SpawnEnemy();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (currentTime <= nextChargeCountDownTime)
         {
-            laserBeamController.ActivateLaserBeam();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            laserBeamController.DeactivateLaserBeam();
+            LaserChargeTime -= Time.deltaTime;
+            ChargeLaser();
+            ShootLaserRandom();
         }
     }
+    public void ChargeLaser()
+    {
+        // Countdown text
+        if (!hasCreatedCountDownText)
+        {
+            UnityEngine.Debug.Log("create new countdownText");
+            laserAndCountDownTextPointIndex = Random.Range(0, LaserSpawnPoint.Length);
+            countDonwTextPointObject[laserAndCountDownTextPointIndex] = new GameObject("countdownText");
+            countDonwTextPointObject[laserAndCountDownTextPointIndex].AddComponent<TextMeshPro>();
+            countDonwTextPointObject[laserAndCountDownTextPointIndex].AddComponent<MeshRenderer>();
+            hasCreatedCountDownText = true;
+        }
+        TextMeshPro textMeshComponent = countDonwTextPointObject[laserAndCountDownTextPointIndex].GetComponent<TextMeshPro>();
+        MeshRenderer meshRendererComponent = countDonwTextPointObject[laserAndCountDownTextPointIndex].GetComponent<MeshRenderer>();
+        textMeshComponent.text = LaserChargeTime.ToString("F1");
+        textMeshComponent.color = Color.yellow;
+        textMeshComponent.fontSize = 10;
+        textMeshComponent.sortingOrder = 10;
+        textMeshComponent.alignment = TextAlignmentOptions.Bottom;
+        textMeshComponent.fontWeight = FontWeight.Bold;
+        countDonwTextPointObject[laserAndCountDownTextPointIndex].GetComponent<TextMeshPro>().text = LaserChargeTime.ToString("F1");
+        textMeshComponent.transform.position = countDonwTextPoint[laserAndCountDownTextPointIndex].transform.position;
+        UnityEngine.Debug.Log("aftertextmesh");
+    }
+
+    private void ShootLaserRandom()
+    {
+        Vector2 curSpawnPoint = (Vector2)LaserSpawnPoint[laserAndCountDownTextPointIndex].position;
+        Debug.Log("#####################################");
+        Debug.Log(LaserSpawnPoint.Length);
+        Debug.Log(Random.Range(0, LaserSpawnPoint.Length));
+        DebugPoint(curSpawnPoint);
+
+     //   ChargeLaser();
+        if (currentTime <= nextLaserSpawnableTime)
+        {
+            Destroy(countDonwTextPointObject[laserAndCountDownTextPointIndex]);
+            enemyController.SpawnLaser(LaserPrefabIndex, curSpawnPoint, 0, 0f);
+            nextLaserSpawnableTime = currentTime - LaserSpawnRate;
+            nextChargeCountDownTime = nextLaserSpawnableTime + baseLaserChargeTime;
+            hasCreatedCountDownText = false;
+            LaserChargeTime = baseLaserChargeTime;
+        }
+    }
+
     private void IncreaseFallSpeed()
     {
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
+        spawnRate -= 0.2f;
     }
     void SpawnEnemy()
     {
-        int prefabIndex = Random.Range(0, enemyController._enemyPrefabs.Length - 1);
+        int prefabIndex = Random.Range(0, enemyController._enemyPrefabs.Length);
         int spawnPointindex = Random.Range(0, spawnPointRandom.Length);
         int rotation = Random.Range(0, 4);
         if (currentTime <= nextSpawnableTime)
@@ -87,11 +154,9 @@ public class Level3 : MonoBehaviour
     void GameOver()
     {
         Debug.Log("game over");
-        //var bomb = GameObject.FindObjectOfType<BombCore>();
-        //Destroy(bomb);
     }
     void DebugPoint(Vector2 point)
     {
-        Debug.Log($"x: {point.x}, y: {point.y}");
+        Debug.Log( " Current Point"+ $"x: {point.x}, y: {point.y}");
     }
 }

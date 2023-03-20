@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Unity.PlasticSCM.Editor.WebApi;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level4 : MonoBehaviour
@@ -11,7 +14,7 @@ public class Level4 : MonoBehaviour
     public EnemyControllerLv4 enemyController;
     public Transform[] BombSpawnPoint;
     private Vector2[] spawnPointRandom;
-    private int numSpawnPointRandom = 20;
+    private int numSpawnPointRandom = 0;
 
     public float spawnRate;
     private float nextSpawnableTime;
@@ -20,6 +23,10 @@ public class Level4 : MonoBehaviour
     public float bombSpawnRate = 40;
     private float nextBombSpawnableTime;
     public int bombPrefabIndex;
+
+    public float landMineWaveTime;
+    public float landMineSpawnRate;
+    public float nextLandMineSpawnableTime;
 
     public float lastBombWave = 15;
     private bool IsDropBomb = true;
@@ -30,26 +37,41 @@ public class Level4 : MonoBehaviour
     public float currentSpeedScale = 1f;
     public float timeToIncreaseSpeed = 10f;
     private float nextTimeToIncreaseSpeed;
+    public float speedLimitScale = 5;
     public GameObject Player;
+    List<GameObject> enemyPrefabs;
+    public LevelPointManager levelPointManager;
+
+    private bool IsIncreaseSpeedWave = false;
+
+    public LayerMask enemyLayerMask;
+
+    private bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
         // Set time
         currentTime = levelTime;
-        nextSpawnableTime = levelTime - spawnRate;
+        nextSpawnableTime = levelTime;
+        levelPointManager.levelTime = levelTime;
 
         nextBombSpawnableTime = bombWaveTime;
 
         nextTimeToIncreaseSpeed = levelTime - timeToIncreaseSpeed;
 
+        nextLandMineSpawnableTime = landMineWaveTime;
+
+        
+
         // Set spawnPoint
-        spawnPointRandom = new Vector2[numSpawnPointRandom];
-        for (int i = 0;i < numSpawnPointRandom; i++)
+        spawnPointRandom = new Vector2[28];
+        for (int i = (int) enemyController.SpawnZoneTopLeft.position.x;i <= enemyController.SpawnZoneTopRight.position.x; i++)
         {
-            spawnPointRandom[i] = new Vector2(((int)Random.Range(enemyController.SpawnZoneTopLeft.position.x, enemyController.SpawnZoneTopRight.position.x) ),
-                                              ((int)Random.Range(enemyController.SpawnZoneBottomLeft.position.y, enemyController.SpawnZoneTopLeft.position.y)) + 0.5f);
-            DebugPoint(spawnPointRandom[i]);
+            DebugPoint(new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y));
+            spawnPointRandom[numSpawnPointRandom] = new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y);
+            numSpawnPointRandom++;
+            DebugPoint(spawnPointRandom[numSpawnPointRandom]);
         }
         enemyController._spawnPoint = spawnPointRandom;
         bombPrefabIndex = enemyController._enemyPrefabs.Length - 1; // last in spawn point
@@ -64,44 +86,70 @@ public class Level4 : MonoBehaviour
     void Update()
     {
         currentTime -= Time.deltaTime;
-        if (IsGameOver())
+        if (gameOver || IsGameOver())
         {
             GameOver();
             return;
         }
-        if(currentTime <= nextTimeToIncreaseSpeed)
+
+        if (currentTime <= 0)
         {
+            GameWin();
+        }
+
+        if (currentTime <= nextTimeToIncreaseSpeed)
+        {
+            levelPointManager.IncreasePointByTime(1);
             IncreaseFallSpeed();
+
+        }
+        if(currentTime <= nextLandMineSpawnableTime)
+        {
             TurnAEnemyToBomb();
         }
         SpawnEnemy();
-        if(currentTime <= bombWaveTime && IsDropBomb)
+        if(currentTime <= nextBombSpawnableTime && IsDropBomb)
         {
             DropBombRandom();
         }
         if(currentTime <= lastBombWave && IsDropBomb)
         {
+            levelPointManager.IncreasePointByTime(20);
             DropBombLastWave();
         }
     }
 
+    private void GameWin()
+    {
+        levelPointManager.GameOver(false);
+        gameOver = true;
+    }
+
     private void TurnAEnemyToBomb()
     {
+        Debug.Log("player pos:");
         DebugPoint((Vector2)Player.transform.position);
-        var obj = Physics2D.OverlapCircle((Vector2)Player.transform.position, 2);
+        if (currentTime > nextLandMineSpawnableTime) return;
+        var obj = Physics2D.OverlapCircle((Vector2)Player.transform.position, 3,enemyLayerMask);
         if (obj == null) return;
-        Debug.Log(obj.gameObject.name);
+        Debug.Log("detect " + obj.gameObject.name);
         if (obj.gameObject.GetComponent<EnemyObject>() != null && obj.gameObject.GetComponent<Bomb>() == null)
         {
             var bomb = obj.gameObject.AddComponent<Bomb>();
+            bomb.range = 6;
+            bomb.damageToPlayer = 2;
+            
         }
+        nextLandMineSpawnableTime -= landMineSpawnRate;
+        levelPointManager.IncreasePointByTime(2);
     }
 
     private void IncreaseFallSpeed()
     {
+        if (currentSpeedScale > speedLimitScale) fallSpeedScale = 1;
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
-        spawnRate -= 0.2f;
+        if(spawnRate > 1) spawnRate -= 0.5f;
     }
 
     private void DropBombRandom()
@@ -110,8 +158,13 @@ public class Level4 : MonoBehaviour
         DebugPoint(curSpawnPoint);
         if (currentTime <= nextBombSpawnableTime)
         {
-            enemyController.SpawnEnemyDefault(bombPrefabIndex, curSpawnPoint, 1,2f);
-            nextBombSpawnableTime = currentTime - bombSpawnRate;
+            bool spawnOk = enemyController.SpawnEnemyDefaultScaleSpeed(bombPrefabIndex, curSpawnPoint, 1, currentSpeedScale);
+            if(spawnOk)
+            {
+                nextBombSpawnableTime = currentTime - bombSpawnRate;
+                levelPointManager.IncreasePointByTime(5);
+            }
+                
         }
     }
 
@@ -120,21 +173,35 @@ public class Level4 : MonoBehaviour
         foreach(var bombPoint in BombSpawnPoint)
         {
             Vector2 curSpawnPoint = (Vector2)bombPoint.position;
-            enemyController.SpawnEnemyDefault(bombPrefabIndex, curSpawnPoint, 1, 2f);
+            enemyController.SpawnEnemyDefaultScaleSpeed(bombPrefabIndex, curSpawnPoint, 1, currentSpeedScale);
             IsDropBomb = false;
         }
     }
 
     bool IsGameOver()
     {
-        if (currentTime <= 0)
+        var list = FindObjectsOfType<EnemyMovement>().ToList();
+        foreach(var enemy in list)
+        {
+            if (!enemy.checkBelow() && !enemy.isGrounded) continue;
+            foreach(Transform enemyChild in enemy.transform)
+            {
+                if (enemyChild.position.y >= 11.5)
+                    return true;
+            }
+        }
+        if(Player.GetComponentInChildren<Health>().currentHealth <= 0)
+        {
+            Destroy(Player);
             return true;
+        }
         return false;
     }
 
     void GameOver()
     {
         Debug.Log("game over");
+        gameOver = true;
         //var bomb = GameObject.FindObjectOfType<BombCore>();
         //Destroy(bomb);
     }
@@ -146,8 +213,8 @@ public class Level4 : MonoBehaviour
         int rotation = Random.Range(0, 4);
         if (currentTime <= nextSpawnableTime)
         {
-            enemyController.SpawnEnemyDefaultScaleSpeed(prefabIndex, spawnPointindex, rotation,currentSpeedScale);
-            nextSpawnableTime = currentTime - spawnRate;
+            bool spawnOk = enemyController.SpawnEnemyDefaultScaleSpeed(prefabIndex, spawnPointindex, rotation,currentSpeedScale);
+            if(spawnOk) nextSpawnableTime = currentTime - spawnRate;
         }
     }
 

@@ -23,7 +23,7 @@ public class EnemyObject : MonoBehaviour
                 this.curentHealth = maxHealth;
                 this.damage = 1;
                 this.score = 1;
-                this.fallSpeed = .1f;               
+                this.fallSpeed = 1f;               
                 this.material = BlockType.WOOD;
                 break;
             case BlockType.STONE:
@@ -31,7 +31,7 @@ public class EnemyObject : MonoBehaviour
                 this.curentHealth = maxHealth;
                 this.damage = 1;
                 this.score = 2;
-                this.fallSpeed = .2f;
+                this.fallSpeed = 2f;
                 this.material = BlockType.STONE;
                 break;
             case BlockType.IRON:
@@ -39,7 +39,7 @@ public class EnemyObject : MonoBehaviour
                 this.curentHealth = maxHealth;
                 this.damage = 2;
                 this.score = 6;
-                this.fallSpeed = .3f;
+                this.fallSpeed = 3f;
                 this.material = BlockType.IRON;
                 break;
             case BlockType.GOLD:
@@ -47,7 +47,7 @@ public class EnemyObject : MonoBehaviour
                 this.curentHealth = maxHealth;
                 this.damage = 2;
                 this.score = 8;
-                this.fallSpeed = .4f;
+                this.fallSpeed = 4f;
                 this.material = BlockType.GOLD;
                 break;
             case BlockType.DIAMOND:
@@ -55,7 +55,7 @@ public class EnemyObject : MonoBehaviour
                 this.curentHealth = maxHealth;
                 this.damage = 3;
                 this.score = 15;
-                this.fallSpeed = .5f;
+                this.fallSpeed = 5f;
                 this.material = BlockType.DIAMOND;
                 break;
         }
@@ -95,5 +95,14 @@ public class EnemyObject : MonoBehaviour
     public void Destroy()
     {
         Destroy(this.gameObject);
+    }
+
+    public void OnDestroy()
+    {
+        var lvpointManager = FindObjectOfType<LevelPointManager>();
+        if(lvpointManager != null)
+        {
+            lvpointManager.totalPoint += score;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CloseWeapon : MonoBehaviour
@@ -8,10 +9,11 @@ public class CloseWeapon : MonoBehaviour
     public bool IsAttack = true;
     public Transform AttackPoint;
     private Weapon weapon;
-    public float attackRange = 1;
+    public float attackRange = 2;
     public LayerMask enemyLayer;
-    public List<Collider2D> enemyInRange;
-    private Vector2 mousePosition;
+     private Vector2 mousePosition;
+    public float Offset;
+
 
     void Start()
     {
@@ -22,54 +24,39 @@ public class CloseWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DetectEnemy();
-
+      
         // attack if press mouse
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
+             
+              
         }
+        
     }
 
-    public void DetectEnemy()
-    {
-        var newEnemyInRange = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, enemyLayer).ToList();
-        var enemyOutOfRange = enemyInRange.Except(newEnemyInRange);
-        foreach (var enemy in enemyOutOfRange)
-        {
-            enemy.GetComponent<Enemy>().ExitTargeted();
-        }
-        enemyInRange = newEnemyInRange;
-        mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Target enemy
-        enemyInRange = enemyInRange.OrderBy(x => Vector2.Distance(x.gameObject.transform.position, mousePosition)).ToList();
-        foreach (var enemy in enemyInRange)
-        {
-            //Debug.Log($"enemy {enemy.GetInstanceID()} {Vector2.Distance(enemy.gameObject.transform.position, mousePosition)}");
-            enemy.GetComponent<Enemy>().ExitTargeted();
-        }
-        if (enemyInRange.Count > 0)
-        {
-            enemyInRange.ElementAt(0).GetComponent<Enemy>().IsTargeted();
-        }
-    }
+    
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(AttackPoint.transform.position, attackRange);
-    }
+    
 
     public void Attack()
     {
-        if (!weapon.CanAttack) return;
-        weapon.Attack();
-        // Animation
-
-        foreach(Collider2D enemy in enemyInRange)
+        transform.Rotate(180f, 0f, 0f);
+         Collider2D[] collider=Physics2D.OverlapCircleAll(AttackPoint.position, attackRange,enemyLayer);  
+        foreach(Collider2D c in collider)
         {
-            var curEnemy = enemy.GetComponent<Enemy>();
-            if (curEnemy.isTargeted)
-                enemy.GetComponent<Enemy>().IsHit(weapon.Damage);
-        }
+            if (!(c.gameObject.tag == "Enemy")) return;
+            var enemy = c.GetComponent<EnemyObject>();
+            enemy.IsHit(weapon.Damage);
+            if (enemy.IsDestroyed())
+            {
+                var lvPointManager = FindObjectOfType<LevelPointManager>();
+                if(lvPointManager != null)
+                {
+                    lvPointManager.IncreasePoint(enemy.score);
+                }
+            }
+
+         }
     }
 }
