@@ -2,46 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class CollideEnemy : MonoBehaviour
 {
-
-    [SerializeField]
-    private float startingHealth;
-    public float currentHealth { get; private set; }
+    private Player player;
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
     {
-        currentHealth = startingHealth;
-    }
-    public void TakeDamage(float _damage)
-    {
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
-        if (currentHealth > 0)
-        {
-            Debug.Log("Player hurt");
-        }
-        else
-        {
-            Debug.Log("Player died");
-        }
+        player = this.GetComponentInParent<Player>();
     }
 
-    public void SetHealth(float health)
+    // Update is called once per frame
+    void Update()
     {
-        currentHealth= health;
+        
     }
 
-    public void IncreaseHealth(float health)
-    {
-        currentHealth += health;
-    }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.E)){
-    //        TakeDamage(1);
-    //    }
-    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -52,35 +27,47 @@ public class Health : MonoBehaviour
             {
                 case Enum.BlockType.WOOD:
                     Debug.Log(enemyType + ":" + enemy.damage);
-                    TakeDamage(enemy.damage);
+                    player.TakeDamage(enemy.damage);
                     Destroy(collision.transform.parent.gameObject);
                     break;
                 case Enum.BlockType.STONE:
                     Debug.Log(enemyType + ":" + enemy.damage);
 
-                    TakeDamage(enemy.damage);
+                    player.TakeDamage(enemy.damage);
                     Destroy(collision.transform.parent.gameObject);
                     break;
                 case Enum.BlockType.IRON:
                     Debug.Log(enemyType + ":" + enemy.damage);
 
-                    TakeDamage(enemy.damage);
+                    player.TakeDamage(enemy.damage);
                     Destroy(collision.transform.parent.gameObject);
                     break;
                 case Enum.BlockType.GOLD:
                     Debug.Log(enemyType + ":" + enemy.damage);
 
-                    TakeDamage(enemy.damage);
+                    player.TakeDamage(enemy.damage);
                     Destroy(collision.transform.parent.gameObject);
                     break;
                 case Enum.BlockType.DIAMOND:
                     Debug.Log(enemyType + ":" + enemy.damage);
 
-                    TakeDamage(enemy.damage);
+                    player.TakeDamage(enemy.damage);
                     Destroy(collision.transform.parent.gameObject);
                     break;
-
-
+                case Enum.BlockType.CUSTOM:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+                    var bomb = collision.transform.parent.gameObject.GetComponent<Bomb>();
+                    if (bomb == null)
+                    {
+                        player.TakeDamage(enemy.damage);
+                        Destroy(collision.transform.parent.gameObject);
+                    }
+                    else
+                    {
+                        player.TakeDamage(bomb.damageToPlayer);
+                    }
+                        
+                    break;
             }
 
 

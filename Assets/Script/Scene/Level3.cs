@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using TMPro;
 public class Level3 : MonoBehaviour
 {
@@ -33,13 +34,15 @@ public class Level3 : MonoBehaviour
     public float nextTimeToIncreaseSpeed;
     public GameObject Player;
 
-    private BossLaserGun laserBeamController;
+   // private BossLaserGun laserBeamController;
+
+    public LevelPointManager levelPointManager;
+    private bool gameOver = false;
     void Start()
     {
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime - spawnRate;
-        nextLaserSpawnableTime = 95;
         nextChargeCountDownTime = nextLaserSpawnableTime + baseLaserChargeTime;
         nextTimeToIncreaseSpeed = levelTime - timeToIncreaseSpeed;
         LaserPrefabIndex = enemyController._enemyPrefabs.Length - 1;
@@ -65,13 +68,14 @@ public class Level3 : MonoBehaviour
         void Update()
     {
         currentTime -= Time.deltaTime;
-        if (IsGameOver())
+        if (gameOver || IsGameOver())
         {
             GameOver();
             return;
         }
         if (currentTime <= nextTimeToIncreaseSpeed)
         {
+            levelPointManager.IncreasePointByTime(1);
             IncreaseFallSpeed();
         }
         SpawnEnemy();
@@ -81,6 +85,11 @@ public class Level3 : MonoBehaviour
             ChargeLaser();
             ShootLaserRandom();
         }
+    }
+    private void GameWin()
+    {
+        levelPointManager.GameOver(false);
+        gameOver = true;
     }
     public void ChargeLaser()
     {
@@ -146,13 +155,27 @@ public class Level3 : MonoBehaviour
     }
     bool IsGameOver()
     {
-        if (currentTime <= 0)
+        var list = FindObjectsOfType<EnemyMovement>().ToList();
+        foreach (var enemy in list)
+        {
+            if (!enemy.checkBelow() && !enemy.isGrounded) continue;
+            foreach (Transform enemyChild in enemy.transform)
+            {
+                if (enemyChild.position.y >= 11.5)
+                    return true;
+            }
+        }
+        if (Player.GetComponent<Player>().currentHealth <= 0)
+        {
+            Destroy(Player);
             return true;
+        }
         return false;
     }
 
     void GameOver()
     {
+        gameOver = true;
         Debug.Log("game over");
     }
     void DebugPoint(Vector2 point)

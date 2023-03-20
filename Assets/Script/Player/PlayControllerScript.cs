@@ -16,16 +16,18 @@ public class PlayControllerScript : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
+    public Player player;
 
     // Start is called before the first frame update
       void Start()
     {
         rangeWeapon = GetComponent<RangeWeapon>();
-       }
+        player = GetComponent<Player>();
+      }
     // Update is called once per frame
     void Update() 
     {
- 
+        speed = player.speed;
         horizontal = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {

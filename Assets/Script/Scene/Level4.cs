@@ -68,10 +68,10 @@ public class Level4 : MonoBehaviour
         spawnPointRandom = new Vector2[28];
         for (int i = (int) enemyController.SpawnZoneTopLeft.position.x;i <= enemyController.SpawnZoneTopRight.position.x; i++)
         {
-            DebugPoint(new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y));
+            //DebugPoint(new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y));
             spawnPointRandom[numSpawnPointRandom] = new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y);
             numSpawnPointRandom++;
-            DebugPoint(spawnPointRandom[numSpawnPointRandom]);
+            //DebugPoint(spawnPointRandom[numSpawnPointRandom]);
         }
         enemyController._spawnPoint = spawnPointRandom;
         bombPrefabIndex = enemyController._enemyPrefabs.Length - 1; // last in spawn point
@@ -127,12 +127,12 @@ public class Level4 : MonoBehaviour
 
     private void TurnAEnemyToBomb()
     {
-        Debug.Log("player pos:");
-        DebugPoint((Vector2)Player.transform.position);
+        //Debug.Log("player pos:");
+        //DebugPoint((Vector2)Player.transform.position);
         if (currentTime > nextLandMineSpawnableTime) return;
         var obj = Physics2D.OverlapCircle((Vector2)Player.transform.position, 3,enemyLayerMask);
         if (obj == null) return;
-        Debug.Log("detect " + obj.gameObject.name);
+        //Debug.Log("detect " + obj.gameObject.name);
         if (obj.gameObject.GetComponent<EnemyObject>() != null && obj.gameObject.GetComponent<Bomb>() == null)
         {
             var bomb = obj.gameObject.AddComponent<Bomb>();
@@ -155,7 +155,7 @@ public class Level4 : MonoBehaviour
     private void DropBombRandom()
     {
         Vector2 curSpawnPoint = (Vector2)BombSpawnPoint[Random.Range(0, BombSpawnPoint.Length)].position;
-        DebugPoint(curSpawnPoint);
+        //DebugPoint(curSpawnPoint);
         if (currentTime <= nextBombSpawnableTime)
         {
             bool spawnOk = enemyController.SpawnEnemyDefaultScaleSpeed(bombPrefabIndex, curSpawnPoint, 1, currentSpeedScale);
@@ -190,7 +190,7 @@ public class Level4 : MonoBehaviour
                     return true;
             }
         }
-        if(Player.GetComponentInChildren<Health>().currentHealth <= 0)
+        if(Player.GetComponent<Player>().currentHealth <= 0)
         {
             Destroy(Player);
             return true;

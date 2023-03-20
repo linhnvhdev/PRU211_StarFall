@@ -99,10 +99,6 @@ public class EnemyObject : MonoBehaviour
 
     public void OnDestroy()
     {
-        var lvpointManager = FindObjectOfType<LevelPointManager>();
-        if(lvpointManager != null)
-        {
-            lvpointManager.totalPoint += score;
-        }
+        
     }
 }
