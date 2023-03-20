@@ -25,5 +25,12 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Level3");
     }
-
+    public void changeCampaignLevel1Scene()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+    public void changeCampaignLevel2Scene()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
 }
