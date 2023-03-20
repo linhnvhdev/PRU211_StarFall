@@ -325,6 +325,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 861715199}
     m_Modifications:
+    - target: {fileID: 8058328464210555493, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058328464210555493, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.467
+      objectReference: {fileID: 0}
     - target: {fileID: 8058328465565043680, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
       propertyPath: m_Name
       value: SwordGood
@@ -339,11 +347,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8058328465565043709, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.9521966
+      value: -0.86255324
       objectReference: {fileID: 0}
     - target: {fileID: 8058328465565043709, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.774763
+      value: 1.6781708
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058328465565043709, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1149
       objectReference: {fileID: 0}
     - target: {fileID: 8058328465565043709, guid: c3f05337b6255dc41ac4b00e43b0f4b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 985851271900242833, guid: 297f02352eee93543ae285658c842782, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.63
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 985851272843071264, guid: 297f02352eee93543ae285658c842782, type: 3}
       propertyPath: m_RootOrder
@@ -469,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 985851272843071271, guid: 297f02352eee93543ae285658c842782, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 297f02352eee93543ae285658c842782, type: 3}
@@ -538,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5364049951046978031, guid: eb2ac2b6a2ff2704da35b76979dbcb0f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5364049951046978027, guid: eb2ac2b6a2ff2704da35b76979dbcb0f, type: 3}
@@ -652,6 +664,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 861715199}
     m_Modifications:
+    - target: {fileID: 4905309063294904002, guid: db94b0c1c0098184b86610056a52a667, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905309063294904002, guid: db94b0c1c0098184b86610056a52a667, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.635
+      objectReference: {fileID: 0}
     - target: {fileID: 4905309063584275884, guid: db94b0c1c0098184b86610056a52a667, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -794,8 +814,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470679026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.42, y: -10.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.1833, y: -11.509, z: 0}
+  m_LocalScale: {x: 3.973489, y: 2.4686186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1702622159}
@@ -874,7 +894,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -895,6 +915,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0212376a46ad3f48bf79f6f18fe2667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 6
+  jumpingPower: 20
+  isFacingLeft: 1
   scale: {x: 2, y: 2}
   rb: {fileID: 470679030}
   groundCheck: {fileID: 1702622159}
@@ -962,11 +985,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.27937266, y: 0.5811413}
+    - - {x: 0.3743646, y: 0.4784886}
+      - {x: 0.27937266, y: 0.5811413}
+      - {x: 0.07392508, y: 0.66233814}
+      - {x: -0.10848523, y: 0.6822977}
       - {x: -0.22747976, y: 0.65638053}
+      - {x: -0.34459665, y: 0.62076324}
+      - {x: -0.4706723, y: 0.38519946}
       - {x: -0.43138522, y: 0.41145566}
-      - {x: -0.224931, y: 0.65502137}
-      - {x: 0.24527329, y: 0.5051494}
+      - {x: -0.25704992, y: 0.5211037}
+      - {x: 0.008795662, y: 0.5007435}
+      - {x: 0.20427874, y: 0.47289988}
       - {x: 0.40329525, y: 0.32092386}
 --- !u!114 &586190030
 MonoBehaviour:
@@ -1417,6 +1446,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 861715199}
     m_Modifications:
+    - target: {fileID: 9061783818383611952, guid: 95fbf4438da231f429f4ce2276e7fb45, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061783818383611952, guid: 95fbf4438da231f429f4ce2276e7fb45, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.433
+      objectReference: {fileID: 0}
     - target: {fileID: 9061783818624638146, guid: 95fbf4438da231f429f4ce2276e7fb45, type: 3}
       propertyPath: m_Name
       value: SwordNormal
