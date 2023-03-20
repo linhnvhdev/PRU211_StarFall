@@ -990,6 +990,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4572779321979292349, guid: 731844c0267b913418830f82025b6ff5, type: 3}
   m_PrefabInstance: {fileID: 398420720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509531774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509531768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9241ebc4c29084db63525d27cb9155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
+  CanActivate: 1
+  timer: 0
+  SkillCooldown: 5
+--- !u!114 &1509531775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509531768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5530685e09d4b19439419827f055cc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1912193314
 GameObject:
   m_ObjectHideFlags: 0
