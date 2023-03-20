@@ -37,9 +37,8 @@ public class PlayControllerScript : MonoBehaviour
         }
         else if (horizontal > 0.5f)
         {
-             
             transform.localScale = new Vector2(scale.x * -1, scale.y * 1);
- 
+
         }
         else if (horizontal < -0.5f)
         {

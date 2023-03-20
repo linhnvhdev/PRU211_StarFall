@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
             isGrounded = true;
         }
     }
-    private bool checkBelow()
+    public bool checkBelow()
     {
         foreach (Transform tr in transform)
         {
