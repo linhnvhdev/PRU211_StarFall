@@ -203,7 +203,7 @@ MonoBehaviour:
   ExploseTime: 20
   currentTime: 0
   range: 10
-  damage: 100
+  damage: 3
   damageToPlayer: 3
   enemyLayerMask:
     serializedVersion: 2

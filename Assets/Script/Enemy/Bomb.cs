@@ -52,7 +52,7 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UnityEngine.Debug.Log("In update");
+        //UnityEngine.Debug.Log("In update");
         currentTime -= Time.deltaTime;
         countdownText.GetComponent<TextMeshPro>().text = currentTime.ToString("F1");
         countdownText.transform.position = transform.position;
@@ -70,7 +70,7 @@ public class Bomb : MonoBehaviour
     private void Explose()
     {
         var enemyList = Physics2D.OverlapCircleAll((Vector2) transform.position,range, enemyLayerMask);
-        UnityEngine.Debug.Log("buum hit " + enemyList.Length);
+        UnityEngine.Debug.Log("buum bomb hit " + enemyList.Length);
         foreach (var enemy in enemyList)
         {
             //Debug.Log(enemy.gameObject.name);

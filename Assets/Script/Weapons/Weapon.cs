@@ -21,6 +21,13 @@ public class Weapon : MonoBehaviour
         timer = attackCooldown;
     }
 
+    public void SetAttackSpeed(float speed)
+    {
+        AttackSpeed = speed;
+        attackCooldown = 1f / AttackSpeed;
+        timer = attackCooldown;
+    }
+
     // Update is called once per frame
     void Update()
     {

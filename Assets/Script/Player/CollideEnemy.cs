@@ -54,8 +54,20 @@ public class CollideEnemy : MonoBehaviour
                     player.TakeDamage(enemy.damage);
                     Destroy(collision.transform.parent.gameObject);
                     break;
-
-
+                case Enum.BlockType.CUSTOM:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+                    var bomb = collision.transform.parent.gameObject.GetComponent<Bomb>();
+                    if (bomb == null)
+                    {
+                        player.TakeDamage(enemy.damage);
+                        Destroy(collision.transform.parent.gameObject);
+                    }
+                    else
+                    {
+                        player.TakeDamage(bomb.damageToPlayer);
+                    }
+                        
+                    break;
             }
 
 
