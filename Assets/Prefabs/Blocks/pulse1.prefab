@@ -120,11 +120,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durationTime: 2
   currentTime: 0
-  range: 2
   damage: 2
+  range: 2
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  damageToPlayer: 2
+  isHit: 0

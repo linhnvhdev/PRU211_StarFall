@@ -34,7 +34,7 @@ public class Level3 : MonoBehaviour
     public float nextTimeToIncreaseSpeed;
     public GameObject Player;
 
-    private BossLaserGun laserBeamController;
+   // private BossLaserGun laserBeamController;
 
     public LevelPointManager levelPointManager;
     private bool gameOver = false;
@@ -43,7 +43,6 @@ public class Level3 : MonoBehaviour
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime - spawnRate;
-        nextLaserSpawnableTime = 95;
         nextChargeCountDownTime = nextLaserSpawnableTime + baseLaserChargeTime;
         nextTimeToIncreaseSpeed = levelTime - timeToIncreaseSpeed;
         LaserPrefabIndex = enemyController._enemyPrefabs.Length - 1;
@@ -166,7 +165,7 @@ public class Level3 : MonoBehaviour
                     return true;
             }
         }
-        if (Player.GetComponentInChildren<Health>().currentHealth <= 0)
+        if (Player.GetComponent<Player>().currentHealth <= 0)
         {
             Destroy(Player);
             return true;
