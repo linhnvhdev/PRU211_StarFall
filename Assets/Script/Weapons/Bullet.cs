@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -22,6 +23,14 @@ public class Bullet : MonoBehaviour
         if (!(collision.gameObject.tag == "Enemy")) return;
         var enemy = collision.GetComponent<EnemyObject>();
         enemy.IsHit(weapon.Damage);
+        if (enemy.IsDestroyed())
+        {
+            var lvPointManager = FindObjectOfType<LevelPointManager>();
+            if (lvPointManager != null)
+            {
+                lvPointManager.IncreasePoint(enemy.score);
+            }
+        }
         Destroy(gameObject);
     }
 }

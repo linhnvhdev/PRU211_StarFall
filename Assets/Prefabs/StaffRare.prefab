@@ -183,6 +183,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5322868384099626643, guid: a74928f4b5efa0443bc818fad6bfd2e3, type: 3}
   rb: {fileID: 5051336295149034174}
   bulletForce: 20
+  Offset: -135
 --- !u!114 &5051336295149034171
 MonoBehaviour:
   m_ObjectHideFlags: 0

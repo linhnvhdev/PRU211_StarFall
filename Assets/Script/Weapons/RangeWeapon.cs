@@ -11,8 +11,9 @@ public class RangeWeapon : MonoBehaviour
     private Weapon weapon;
     public float bulletForce = 20f;
     public float Offset;
-    
-    
+    public float OffsetFirePoint = -90;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,8 @@ public class RangeWeapon : MonoBehaviour
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ= Mathf.Atan2(difference.y,difference.x)*Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + Offset);
-
+        firePoint.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + OffsetFirePoint);
+        //transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
