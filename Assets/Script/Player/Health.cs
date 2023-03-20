@@ -35,12 +35,46 @@ public class Health : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            TakeDamage(0.5f);
-            Destroy(collision.gameObject);
+            var enemy = collision.GetComponent<EnemyObject>();
+            var enemyType = enemy.material;
+            switch (enemyType)
+            {
+                case Enum.BlockType.WOOD:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+                    TakeDamage(enemy.damage);
+                    Destroy(collision.transform.parent.gameObject);
+                    break;
+                case Enum.BlockType.STONE:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+
+                    TakeDamage(enemy.damage);
+                    Destroy(collision.transform.parent.gameObject);
+                    break;
+                case Enum.BlockType.IRON:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+
+                    TakeDamage(enemy.damage);
+                    Destroy(collision.transform.parent.gameObject);
+                    break;
+                case Enum.BlockType.GOLD:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+
+                    TakeDamage(enemy.damage);
+                    Destroy(collision.transform.parent.gameObject);
+                    break;
+                case Enum.BlockType.DIAMOND:
+                    Debug.Log(enemyType + ":" + enemy.damage);
+
+                    TakeDamage(enemy.damage);
+                    Destroy(collision.transform.parent.gameObject);
+                    break;
+
+
+            }
+
 
         }
 
 
     }
 }
- 

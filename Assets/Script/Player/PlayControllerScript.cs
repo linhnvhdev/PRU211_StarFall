@@ -7,46 +7,46 @@ using UnityEngine.UIElements;
 public class PlayControllerScript : MonoBehaviour
 {
     private float horizontal;
-    public float speed = 3f;
+    public float speed = 6f;
     public float jumpingPower = 20f;
-    private bool isFacingLeft = true;
+    public bool isFacingLeft = true;
     public Vector2 scale;
+      private RangeWeapon rangeWeapon;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
 
     // Start is called before the first frame update
-    private void Start()
+      void Start()
     {
-  
-    }
+        rangeWeapon = GetComponent<RangeWeapon>();
+       }
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
  
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump") && IsGrounded()  )
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
- 
         }
-        
-        else if (Input.GetButtonDown("Jump") && IsOnBlock()  )
+        else if (Input.GetButtonDown("Jump") && IsOnBlock())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-         }
+        }
         else if (horizontal > 0.5f)
         {
             transform.localScale = new Vector2(scale.x * -1, scale.y * 1);
+
         }
-        else if (horizontal <- 0.5f)
+        else if (horizontal < -0.5f)
         {
             transform.localScale = new Vector2(scale.x * 1, scale.y * 1);
-
+ 
         }
 
-        
+
 
     }
     private void FixedUpdate()
@@ -55,7 +55,7 @@ public class PlayControllerScript : MonoBehaviour
     }
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.19f),CapsuleDirection2D.Horizontal,0, groundLayer);
+        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.19f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
     private bool IsOnBlock()
     {
@@ -63,7 +63,7 @@ public class PlayControllerScript : MonoBehaviour
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.19f), CapsuleDirection2D.Horizontal, 0, enemyLayer);
 
     }
-     
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -87,6 +87,6 @@ public class PlayControllerScript : MonoBehaviour
             // Destroy item which is comsumed
             Destroy(collision.gameObject);
         }
-         
+
     }
 }
