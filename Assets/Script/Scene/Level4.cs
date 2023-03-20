@@ -209,7 +209,7 @@ public class Level4 : MonoBehaviour
     void SpawnEnemy()
     {
         int prefabIndex = Random.Range(0, enemyController._enemyPrefabs.Length-1);
-        int spawnPointindex = Random.Range(0, spawnPointRandom.Length);
+        int spawnPointindex = Random.Range(0, spawnPointRandom.Length); 
         int rotation = Random.Range(0, 4);
         if (currentTime <= nextSpawnableTime)
         {
