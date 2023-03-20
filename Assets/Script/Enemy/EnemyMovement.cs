@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-     public bool isGrounded = false;
+    public bool isGrounded = false;
     public float speed;
     public LayerMask enemyLayerMask;
     private List<GameObject> collisions = new List<GameObject>();
     private Quaternion blockRotation;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         blockRotation = transform.rotation;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     {     
         if (!checkBelow() && !isGrounded)
         {
+            rb.bodyType = RigidbodyType2D.Dynamic;
             if (blockRotation == Quaternion.Euler(0, 0, 90))
             {
                 transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -37,6 +40,10 @@ public class EnemyMovement : MonoBehaviour
             {
                 transform.Translate(Vector2.down * speed * Time.deltaTime);
             }
+        }
+        else
+        {
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 

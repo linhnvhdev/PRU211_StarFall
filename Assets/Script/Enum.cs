@@ -25,4 +25,14 @@ public class Enum
         SPAWN_WAVE2,
         SPAWN_WAVE3
     }
+
+    public enum ItemType
+    {
+        HP1,
+        HP2,
+        HP3,
+        COIN,
+        BOMB,
+        SHIELD
+    }
 }
