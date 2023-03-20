@@ -48,10 +48,14 @@ public class CloseWeapon : MonoBehaviour
             if (!(c.gameObject.tag == "Enemy")) return;
             var enemy = c.GetComponent<EnemyObject>();
             enemy.IsHit(weapon.Damage);
-            //if (enemy.IsDestroyed())
-            //{
-            //    //
-            //}
+            if (enemy.IsDestroyed())
+            {
+                var lvPointManager = FindObjectOfType<LevelPointManager>();
+                if(lvPointManager != null)
+                {
+                    lvPointManager.IncreasePoint(enemy.score);
+                }
+            }
 
          }
     }

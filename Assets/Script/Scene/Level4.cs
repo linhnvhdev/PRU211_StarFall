@@ -40,6 +40,9 @@ public class Level4 : MonoBehaviour
     public float speedLimitScale = 5;
     public GameObject Player;
     List<GameObject> enemyPrefabs;
+    public LevelPointManager levelPointManager;
+
+    private bool IsIncreaseSpeedWave = false;
 
     public LayerMask enemyLayerMask;
 
@@ -51,12 +54,15 @@ public class Level4 : MonoBehaviour
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime;
+        levelPointManager.levelTime = levelTime;
 
         nextBombSpawnableTime = bombWaveTime;
 
         nextTimeToIncreaseSpeed = levelTime - timeToIncreaseSpeed;
 
         nextLandMineSpawnableTime = landMineWaveTime;
+
+        
 
         // Set spawnPoint
         spawnPointRandom = new Vector2[28];
@@ -85,24 +91,38 @@ public class Level4 : MonoBehaviour
             GameOver();
             return;
         }
-        if(currentTime <= nextTimeToIncreaseSpeed)
+
+        if (currentTime <= 0)
         {
+            GameWin();
+        }
+
+        if (currentTime <= nextTimeToIncreaseSpeed)
+        {
+            levelPointManager.IncreasePointByTime(1);
             IncreaseFallSpeed();
 
         }
-        if(currentTime <= landMineWaveTime)
+        if(currentTime <= nextLandMineSpawnableTime)
         {
             TurnAEnemyToBomb();
         }
         SpawnEnemy();
-        if(currentTime <= bombWaveTime && IsDropBomb)
+        if(currentTime <= nextBombSpawnableTime && IsDropBomb)
         {
             DropBombRandom();
         }
         if(currentTime <= lastBombWave && IsDropBomb)
         {
+            levelPointManager.IncreasePointByTime(20);
             DropBombLastWave();
         }
+    }
+
+    private void GameWin()
+    {
+        levelPointManager.GameOver(false);
+        gameOver = true;
     }
 
     private void TurnAEnemyToBomb()
@@ -117,8 +137,11 @@ public class Level4 : MonoBehaviour
         {
             var bomb = obj.gameObject.AddComponent<Bomb>();
             bomb.range = 6;
+            bomb.damageToPlayer = 2;
+            
         }
         nextLandMineSpawnableTime -= landMineSpawnRate;
+        levelPointManager.IncreasePointByTime(2);
     }
 
     private void IncreaseFallSpeed()
@@ -137,7 +160,11 @@ public class Level4 : MonoBehaviour
         {
             bool spawnOk = enemyController.SpawnEnemyDefaultScaleSpeed(bombPrefabIndex, curSpawnPoint, 1, currentSpeedScale);
             if(spawnOk)
+            {
                 nextBombSpawnableTime = currentTime - bombSpawnRate;
+                levelPointManager.IncreasePointByTime(5);
+            }
+                
         }
     }
 
@@ -153,8 +180,6 @@ public class Level4 : MonoBehaviour
 
     bool IsGameOver()
     {
-        if (currentTime <= 0)
-            return true;
         var list = FindObjectsOfType<EnemyMovement>().ToList();
         foreach(var enemy in list)
         {
