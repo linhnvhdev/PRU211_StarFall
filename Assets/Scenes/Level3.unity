@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 858820247}
   - component: {fileID: 858820248}
   - component: {fileID: 858820249}
+  - component: {fileID: 858820250}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -558,7 +559,8 @@ MonoBehaviour:
   currentSpeedScale: 1
   timeToIncreaseSpeed: 8
   nextTimeToIncreaseSpeed: 0
-  Player: {fileID: 1776924253}
+  Player: {fileID: 1862071510}
+  levelPointManager: {fileID: 858820250}
 --- !u!114 &858820249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,6 +623,26 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0, w: 1}
   - {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
   - {x: 0, y: 0, z: 1, w: -0.00000004371139}
+--- !u!114 &858820250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858820245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff3aab5fca4d3d418578649bd2c8b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalPoint: 0
+  PointWinGame: 100
+  PointByTime: 4
+  currentTime: 0
+  levelTime: 0
+  nextIncreasePointTime: 0
+  pointIncreaseRate: 1
+  isGameEnd: 0
 --- !u!1 &1053466900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,13 +1339,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1776924252
+--- !u!1001 &1862071509
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3664720714008186866, guid: 731844c0267b913418830f82025b6ff5, type: 3}
+      propertyPath: Offset
+      value: -135
+      objectReference: {fileID: 0}
     - target: {fileID: 4572779321979292344, guid: 731844c0267b913418830f82025b6ff5, type: 3}
       propertyPath: speed
       value: 6
@@ -1392,12 +1418,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4572779321979292349, guid: 731844c0267b913418830f82025b6ff5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432191586118316316, guid: 731844c0267b913418830f82025b6ff5, type: 3}
+      propertyPath: Offset
+      value: -135
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731844c0267b913418830f82025b6ff5, type: 3}
---- !u!1 &1776924253 stripped
+--- !u!1 &1862071510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4572779321979292349, guid: 731844c0267b913418830f82025b6ff5, type: 3}
-  m_PrefabInstance: {fileID: 1776924252}
+  m_PrefabInstance: {fileID: 1862071509}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865223019
 GameObject:

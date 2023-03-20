@@ -47,14 +47,7 @@ public class BossLaserGun : MonoBehaviour
     }
     private void TurnOffLaser()
     {
-        //var list = Physics2D.OverlapCircleAll((Vector2)transform.position, range, enemyLayerMask);
-        //UnityEngine.Debug.Log("buum hit " + list.Length);
-        //foreach (var enemy in list)
-        //{
-        //    Debug.Log(enemy.gameObject.name);
-        //    enemy.gameObject.GetComponent<EnemyObject>().IsHit(damage);
-        //}
-        //Destroy(countdownText);
+        
         Destroy(gameObject);
     }
 }
