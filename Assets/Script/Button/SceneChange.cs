@@ -16,6 +16,10 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("CampaignModeScene");
     }
+    public void changeSettingsScene()
+    {
+        SceneManager.LoadScene("SettingScene");
+    }
 
     public void changeCampaignLevel4Scene()
     {
