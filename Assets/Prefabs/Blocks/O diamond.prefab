@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3816093174825651706}
   - component: {fileID: 5579357687243914537}
   - component: {fileID: 6956635374746896309}
+  - component: {fileID: 6447206695533647932}
   m_Layer: 3
   m_Name: Cyan (3)
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 4
   isTargeted: 0
+--- !u!114 &6447206695533647932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893365115455921073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &1181081383651097676
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +233,7 @@ GameObject:
   - component: {fileID: 5050910411395700904}
   - component: {fileID: 2710103845947637030}
   - component: {fileID: 6286775768919120471}
+  - component: {fileID: 7817729173956751489}
   m_Layer: 3
   m_Name: Cyan (2)
   m_TagString: Enemy
@@ -337,6 +353,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 4
   isTargeted: 0
+--- !u!114 &7817729173956751489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833481352324149656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &8712907886735086348
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +379,7 @@ GameObject:
   - component: {fileID: 4138445060850750153}
   - component: {fileID: 7089744964532112520}
   - component: {fileID: 2558516140481945276}
+  - component: {fileID: 8595875249043350029}
   m_Layer: 3
   m_Name: Cyan (1)
   m_TagString: Enemy
@@ -468,6 +499,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 4
   isTargeted: 0
+--- !u!114 &8595875249043350029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712907886735086348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &9019522017533675219
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +525,7 @@ GameObject:
   - component: {fileID: 7954525842555972186}
   - component: {fileID: 3427999836396320609}
   - component: {fileID: 1543714094582809415}
+  - component: {fileID: 1571529829330126088}
   m_Layer: 3
   m_Name: Cyan
   m_TagString: Enemy
@@ -599,3 +645,17 @@ MonoBehaviour:
   fallSpeed: 0
   material: 4
   isTargeted: 0
+--- !u!114 &1571529829330126088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019522017533675219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []

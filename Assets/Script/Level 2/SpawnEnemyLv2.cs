@@ -22,6 +22,7 @@ public class SpawnEnemyLv2 : MonoBehaviour
     private float nextSpawnableTime;
     public GameStateLv2 gameState;
     public int currentEnemy = 0;
+    private GameObject Player;
     #region Prefabs
     private GameObject Iwood;
     private GameObject Lwood;
@@ -112,6 +113,10 @@ public class SpawnEnemyLv2 : MonoBehaviour
         //Test
         SpawnWave1();
         //
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
     }
 
     // Update is called once per frame

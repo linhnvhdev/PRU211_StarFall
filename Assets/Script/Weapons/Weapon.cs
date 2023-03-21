@@ -50,6 +50,6 @@ public class Weapon : MonoBehaviour
     public void Attack()
     {
         // reset cooldown
-        timer = 0;
+        timer = 0;       
     }
 }

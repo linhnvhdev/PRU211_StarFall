@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7266603595770919108}
   - component: {fileID: 4930505147250653227}
   - component: {fileID: 6677252312438560912}
+  - component: {fileID: 2145994296957807971}
   m_Layer: 3
   m_Name: Orange (3)
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 2
   isTargeted: 0
+--- !u!114 &2145994296957807971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923343427989940407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &6707228779429457492
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 6192040926038524237}
   - component: {fileID: 6093215529731275199}
   - component: {fileID: 1489282701271411208}
+  - component: {fileID: 8943400970512824672}
   m_Layer: 3
   m_Name: Orange (2)
   m_TagString: Enemy
@@ -262,6 +278,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 2
   isTargeted: 0
+--- !u!114 &8943400970512824672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707228779429457492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &7159863712188557584
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +304,7 @@ GameObject:
   - component: {fileID: 3097803221955906104}
   - component: {fileID: 6659394163132938142}
   - component: {fileID: 2179309495152623685}
+  - component: {fileID: 7692535734728439640}
   m_Layer: 3
   m_Name: Orange
   m_TagString: Enemy
@@ -393,6 +424,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 2
   isTargeted: 0
+--- !u!114 &7692535734728439640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159863712188557584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &7717839963249868861
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +525,7 @@ GameObject:
   - component: {fileID: 7319598731363963395}
   - component: {fileID: 839361043491779436}
   - component: {fileID: 5003654440060327636}
+  - component: {fileID: 6599388516910499461}
   m_Layer: 3
   m_Name: Orange (1)
   m_TagString: Enemy
@@ -599,3 +645,17 @@ MonoBehaviour:
   fallSpeed: 0
   material: 2
   isTargeted: 0
+--- !u!114 &6599388516910499461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181136123167082397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []

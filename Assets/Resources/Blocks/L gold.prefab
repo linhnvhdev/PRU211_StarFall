@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6986053488651034257}
   - component: {fileID: 4054868116543980257}
   - component: {fileID: 8841786615632398085}
+  - component: {fileID: 3250437146643775329}
   m_Layer: 3
   m_Name: Yellow
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 3
   isTargeted: 0
+--- !u!114 &3250437146643775329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337792122701898686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &3958572942229090614
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 3592326468681602799}
   - component: {fileID: 9192559978910282332}
   - component: {fileID: 5970410584318405393}
+  - component: {fileID: 8738982631731639961}
   m_Layer: 3
   m_Name: Yellow (2)
   m_TagString: Enemy
@@ -262,6 +278,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 3
   isTargeted: 0
+--- !u!114 &8738982631731639961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3958572942229090614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &5947517635007364413
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +304,7 @@ GameObject:
   - component: {fileID: 995646783516110379}
   - component: {fileID: 3656056074058501560}
   - component: {fileID: 8143720421135199022}
+  - component: {fileID: 6399403414686911831}
   m_Layer: 3
   m_Name: Yellow (1)
   m_TagString: Enemy
@@ -393,6 +424,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 3
   isTargeted: 0
+--- !u!114 &6399403414686911831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947517635007364413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &5961203437242614632
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +450,7 @@ GameObject:
   - component: {fileID: 3660444239981867990}
   - component: {fileID: 1059988096398553408}
   - component: {fileID: 7599012628514628482}
+  - component: {fileID: 2827762431439529014}
   m_Layer: 3
   m_Name: Yellow (3)
   m_TagString: Enemy
@@ -524,6 +570,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 3
   isTargeted: 0
+--- !u!114 &2827762431439529014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5961203437242614632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &8004485108737121989
 GameObject:
   m_ObjectHideFlags: 0

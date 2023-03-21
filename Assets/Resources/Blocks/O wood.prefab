@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2912621321548208493}
   - component: {fileID: 8385618967046144340}
   - component: {fileID: 9053197403574813370}
+  - component: {fileID: 5683321680847238617}
   m_Layer: 3
   m_Name: Green (3)
   m_TagString: Enemy
@@ -131,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &5683321680847238617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490056605405952683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &1235008452730908060
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 8690897530766826048}
   - component: {fileID: 8969944374527415908}
   - component: {fileID: 4229603298839691738}
+  - component: {fileID: 4517273359345301016}
   m_Layer: 3
   m_Name: Green
   m_TagString: Enemy
@@ -262,6 +278,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &4517273359345301016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235008452730908060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &4713180079596124656
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +304,7 @@ GameObject:
   - component: {fileID: 330266027044686896}
   - component: {fileID: 1008735800369675788}
   m_Layer: 3
-  m_Name: O Wood
+  m_Name: O wood
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +341,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -349,6 +379,7 @@ GameObject:
   - component: {fileID: 4624001115004233133}
   - component: {fileID: 6560581665455244124}
   - component: {fileID: 8635486444317806961}
+  - component: {fileID: 2465381673228969099}
   m_Layer: 3
   m_Name: Green (1)
   m_TagString: Enemy
@@ -468,6 +499,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &2465381673228969099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031903873786897527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &8795543005773156020
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +525,7 @@ GameObject:
   - component: {fileID: 405162408756294009}
   - component: {fileID: 2468055450083691185}
   - component: {fileID: 8808355645704847245}
+  - component: {fileID: 7978623559593428067}
   m_Layer: 3
   m_Name: Green (2)
   m_TagString: Enemy
@@ -599,3 +645,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &7978623559593428067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795543005773156020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []

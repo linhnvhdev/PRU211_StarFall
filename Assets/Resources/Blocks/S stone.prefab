@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2986474491442906839}
   - component: {fileID: 4934099735661111509}
   - component: {fileID: 8616477235081518783}
+  - component: {fileID: 6416958011006831415}
   m_Layer: 3
   m_Name: Purple (1)
   m_TagString: Enemy
@@ -131,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &6416958011006831415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132007428744372220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &2314566137570716849
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 3625910436496988619}
   - component: {fileID: 5927440591334538524}
   - component: {fileID: 2721949942603373823}
+  - component: {fileID: 6450853755980185636}
   m_Layer: 3
   m_Name: Purple (3)
   m_TagString: Enemy
@@ -262,6 +278,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &6450853755980185636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314566137570716849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &3408968069150179929
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +304,7 @@ GameObject:
   - component: {fileID: 646587343822332623}
   - component: {fileID: 5253924448282628838}
   - component: {fileID: 4721617436845150639}
+  - component: {fileID: 4449730459300327047}
   m_Layer: 3
   m_Name: Purple (2)
   m_TagString: Enemy
@@ -393,6 +424,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &4449730459300327047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408968069150179929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &3633708070728819965
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +450,7 @@ GameObject:
   - component: {fileID: 1345228508253408663}
   - component: {fileID: 7989926744225226662}
   - component: {fileID: 1037774165218682393}
+  - component: {fileID: 888933591639386827}
   m_Layer: 3
   m_Name: Purple
   m_TagString: Enemy
@@ -524,6 +570,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &888933591639386827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633708070728819965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &3678351198328649373
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +596,7 @@ GameObject:
   - component: {fileID: -8721560574203371621}
   - component: {fileID: 4781901666203503938}
   m_Layer: 3
-  m_Name: S Stone
+  m_Name: S stone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +650,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

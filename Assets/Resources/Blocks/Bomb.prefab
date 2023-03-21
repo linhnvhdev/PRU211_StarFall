@@ -1261,9 +1261,13 @@ MonoBehaviour:
   currentTime: 0
   range: 4
   damage: 100
+  damageToPlayer: 2
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   bombSpeed: 3
 --- !u!1 &477894349405098084
 GameObject:

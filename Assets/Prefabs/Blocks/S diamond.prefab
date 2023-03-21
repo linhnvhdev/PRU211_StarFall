@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 437930538426470163}
   - component: {fileID: 8962325573656751317}
   - component: {fileID: 7710939839147381897}
+  - component: {fileID: 9131632111606076087}
   m_Layer: 3
   m_Name: Cyan (1)
   m_TagString: Enemy
@@ -131,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &9131632111606076087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89679358269196810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &1498888216839736236
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 7720115502977578950}
   - component: {fileID: 6035882804670840535}
   - component: {fileID: 2267708989064354209}
+  - component: {fileID: 2458750134508104447}
   m_Layer: 3
   m_Name: Cyan (2)
   m_TagString: Enemy
@@ -262,6 +278,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &2458750134508104447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498888216839736236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &1620139634942455909
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +379,7 @@ GameObject:
   - component: {fileID: 7362853437428245122}
   - component: {fileID: 229148251815165971}
   - component: {fileID: 6953854093419584340}
+  - component: {fileID: 8263801926663736705}
   m_Layer: 3
   m_Name: Cyan
   m_TagString: Enemy
@@ -468,6 +499,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &8263801926663736705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982533605197975894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &5057932813152243855
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +525,7 @@ GameObject:
   - component: {fileID: 5482172028016429132}
   - component: {fileID: 6487170381245448151}
   - component: {fileID: 3737579850571952589}
+  - component: {fileID: 5242373600991954310}
   m_Layer: 3
   m_Name: Cyan (3)
   m_TagString: Enemy
@@ -599,3 +645,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.97}
   m_EdgeRadius: 0
+--- !u!114 &5242373600991954310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057932813152243855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
