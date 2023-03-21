@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Enum;
 
 public class ConsumableScript : MonoBehaviour
 {
@@ -9,5 +10,5 @@ public class ConsumableScript : MonoBehaviour
     // Step2 : Add this script to these items 
     // Step3 : In unity , add specific itemType to each Item 
 
-    public string itemType;
+    public ItemType itemType;
 }

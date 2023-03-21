@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 127535778901461990}
   - component: {fileID: 1776346251762747186}
   - component: {fileID: 599555477650742409}
+  - component: {fileID: 4592182024251808541}
   m_Layer: 3
   m_Name: Green
   m_TagString: Enemy
@@ -131,6 +132,23 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &4592182024251808541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011831524188090475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 2373694534800253008, guid: c3af24249e8716b47a14de643f3ccf3d, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 94179a684ee5944408d73128e06e0a8b, type: 2}
+  - {fileID: 11400000, guid: 49685da6ea11278478b26b323170eee7, type: 2}
+  - {fileID: 11400000, guid: 522691ee0aef2444fa70600fce53532e, type: 2}
 --- !u!1 &2547305656224964232
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +161,7 @@ GameObject:
   - component: {fileID: 1931296284758740978}
   - component: {fileID: 8237891423346658698}
   - component: {fileID: 166717651302821749}
+  - component: {fileID: 4853383948152830969}
   m_Layer: 3
   m_Name: Green (2)
   m_TagString: Enemy
@@ -262,6 +281,23 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &4853383948152830969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2547305656224964232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 2373694534800253008, guid: c3af24249e8716b47a14de643f3ccf3d, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 94179a684ee5944408d73128e06e0a8b, type: 2}
+  - {fileID: 11400000, guid: 49685da6ea11278478b26b323170eee7, type: 2}
+  - {fileID: 11400000, guid: 522691ee0aef2444fa70600fce53532e, type: 2}
 --- !u!1 &3246417679124363007
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +310,7 @@ GameObject:
   - component: {fileID: 1815132568348052347}
   - component: {fileID: 7710533145850692137}
   m_Layer: 3
-  m_Name: J Wood
+  m_Name: J wood
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,6 +385,7 @@ GameObject:
   - component: {fileID: 1938955319508526579}
   - component: {fileID: 5124533798133945956}
   - component: {fileID: 8906839607330838163}
+  - component: {fileID: 6259447180183385760}
   m_Layer: 3
   m_Name: Green (3)
   m_TagString: Enemy
@@ -468,6 +505,23 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &6259447180183385760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502100478088187654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 2373694534800253008, guid: c3af24249e8716b47a14de643f3ccf3d, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 94179a684ee5944408d73128e06e0a8b, type: 2}
+  - {fileID: 11400000, guid: 49685da6ea11278478b26b323170eee7, type: 2}
+  - {fileID: 11400000, guid: 522691ee0aef2444fa70600fce53532e, type: 2}
 --- !u!1 &8699628960202609150
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +534,7 @@ GameObject:
   - component: {fileID: 8076223312776962445}
   - component: {fileID: 6797515797909017281}
   - component: {fileID: 3254723453042431325}
+  - component: {fileID: 7576852440803433861}
   m_Layer: 3
   m_Name: Green (1)
   m_TagString: Enemy
@@ -599,3 +654,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &7576852440803433861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699628960202609150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 2373694534800253008, guid: c3af24249e8716b47a14de643f3ccf3d, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 94179a684ee5944408d73128e06e0a8b, type: 2}
+  - {fileID: 11400000, guid: 49685da6ea11278478b26b323170eee7, type: 2}
+  - {fileID: 11400000, guid: 522691ee0aef2444fa70600fce53532e, type: 2}

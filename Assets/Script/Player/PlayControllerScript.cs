@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Enum;
 
 public class PlayControllerScript : MonoBehaviour
 {
@@ -80,17 +81,17 @@ public class PlayControllerScript : MonoBehaviour
     {
         if (collision.CompareTag("Consumable"))
         {
-            string itemType = collision.gameObject.GetComponent<ConsumableScript>().itemType;
-            if (itemType.Equals("hp1"))
+            ItemType itemType = collision.gameObject.GetComponent<ConsumableScript>().itemType;
+            if (itemType == ItemType.HP1)
             {
                 Debug.Log("add 1 health");
             }
-            else if (itemType.Equals("coin"))
+            else if (itemType == ItemType.COIN)
             {
                 //+2 hp
                 Debug.Log("add 1 coin");
             }
-            else if (itemType.Equals("shield"))
+            else if (itemType == ItemType.SHIELD)
             {
 
                 Debug.Log("add 1 shield");

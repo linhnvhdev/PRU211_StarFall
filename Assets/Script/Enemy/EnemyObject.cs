@@ -14,6 +14,8 @@ public class EnemyObject : MonoBehaviour
     public BlockType material;
     public bool isTargeted;
 
+    Lootbag lootBag;
+
     public void SetEnemyDefaultData(BlockType material)
     {
         switch (material)
@@ -70,6 +72,7 @@ public class EnemyObject : MonoBehaviour
             child.gameObject.AddComponent<EnemyObject>();
             child.gameObject.GetComponent<EnemyObject>().SetEnemyDefaultData(material);
         }
+        lootBag = GetComponent<Lootbag>();
     }
 
     public void SetEnemyCustomData(int maxHealth, int damage, int score, float fallSpeed)
@@ -94,6 +97,7 @@ public class EnemyObject : MonoBehaviour
 
     public void Destroy()
     {
+        lootBag.InstantiateLoot(transform.position);
         Destroy(this.gameObject);
     }
 
