@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4051849081923769628}
   - component: {fileID: 774309887632895699}
   - component: {fileID: 6952092146501382345}
+  - component: {fileID: 301235542164464343}
   m_Layer: 3
   m_Name: Green
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &301235542164464343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850335741434169972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &4672394303733717530
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 1566599113389665968}
   - component: {fileID: 3026060429534558478}
   - component: {fileID: 8317071973297009111}
+  - component: {fileID: 8873691889087489090}
   m_Layer: 3
   m_Name: Green (1)
   m_TagString: Enemy
@@ -262,6 +278,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &8873691889087489090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672394303733717530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &5004875027011523472
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +304,7 @@ GameObject:
   - component: {fileID: 719512835265845728}
   - component: {fileID: 7967839638297736580}
   - component: {fileID: 7809110644473583987}
+  - component: {fileID: 7749244844290969895}
   m_Layer: 3
   m_Name: Green (3)
   m_TagString: Enemy
@@ -393,6 +424,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &7749244844290969895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004875027011523472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &6599096066687220184
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +450,7 @@ GameObject:
   - component: {fileID: 8600800370827134484}
   - component: {fileID: 247750255777755995}
   - component: {fileID: 1305431806715196606}
+  - component: {fileID: 7649808950346853117}
   m_Layer: 3
   m_Name: Green (2)
   m_TagString: Enemy
@@ -524,6 +570,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 0
   isTargeted: 0
+--- !u!114 &7649808950346853117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599096066687220184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &7524677481007348627
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +596,7 @@ GameObject:
   - component: {fileID: 4218599180333847577}
   - component: {fileID: 6324249308545056881}
   m_Layer: 3
-  m_Name: S Wood
+  m_Name: S wood
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +650,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

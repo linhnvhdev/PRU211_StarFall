@@ -12,21 +12,28 @@ public class PlayControllerScript : MonoBehaviour
     public float jumpingPower = 20f;
     public bool isFacingLeft = true;
     public Vector2 scale;
-      private RangeWeapon rangeWeapon;
+    private RangeWeapon rangeWeapon;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
     public Player player;
-
+    Animator animator;
+    private string currentState;
+    //Animation States
+    const string PLAYER_IDLE = "Player_Idle";
+    const string PLAYER_RUN = "Player_Run";
+    const string PLAYER_JUMP = "Player_Jump";
+    const string PLAYER_SWORD = "Player_Sword";
     // Start is called before the first frame update
-      void Start()
+    void Start()
     {
         rangeWeapon = GetComponent<RangeWeapon>();
         player = GetComponent<Player>();
-      }
+        animator = GetComponent<Animator>();
+    }
     // Update is called once per frame
-    void Update() 
+    void Update()
     {
         speed = player.speed;
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -42,7 +49,7 @@ public class PlayControllerScript : MonoBehaviour
         {
             transform.localScale = new Vector2(scale.x * -1, scale.y * 1);
             var rangeweapon = GetComponentInChildren<RangeWeapon>();
-            if(rangeweapon != null)
+            if (rangeweapon != null)
             {
                 rangeweapon.Offset = -45;
             }
@@ -58,9 +65,29 @@ public class PlayControllerScript : MonoBehaviour
             }
         }
 
-
-
+        if (IsGrounded() || IsOnBlock())
+        {
+            if (horizontal != 0)
+            {
+                ChangeAnimationState(PLAYER_RUN);
+            }
+            else
+            {
+                ChangeAnimationState(PLAYER_IDLE);
+            }
+        }
+        if (!IsGrounded() && !IsOnBlock())
+        {
+            ChangeAnimationState(PLAYER_JUMP);
+        }
     }
+    private void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
+        currentState = newState;
+        animator.Play(newState);
+    }
+
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4905309063584275888}
   - component: {fileID: 4905309063584275887}
   - component: {fileID: 4905309063584275886}
+  - component: {fileID: 7127330197141259593}
   m_Layer: 0
   m_Name: SwordRare
   m_TagString: Untagged
@@ -176,7 +177,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  enemyInRange: []
+  Offset: 0
 --- !u!58 &4905309063584275886
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,3 +194,23 @@ CircleCollider2D:
   m_Offset: {x: 0.4375, y: 0.4375}
   serializedVersion: 2
   m_Radius: 0.4375
+--- !u!95 &7127330197141259593
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905309063584275889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 85ab03b54dd788846b3e5df97d550638, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

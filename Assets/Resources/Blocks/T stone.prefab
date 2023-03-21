@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5726089643666428324}
   - component: {fileID: 7023831428520975125}
   - component: {fileID: 1339747369541974177}
+  - component: {fileID: 295829588527434187}
   m_Layer: 3
   m_Name: Purple
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 1
   isTargeted: 0
+--- !u!114 &295829588527434187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96016551362962734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &933860527830902299
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 8804303149758379057}
   - component: {fileID: 8992996513942564195}
   - component: {fileID: 3795319707656705906}
+  - component: {fileID: 5705017753156583484}
   m_Layer: 3
   m_Name: Purple (1)
   m_TagString: Enemy
@@ -262,6 +278,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 1
   isTargeted: 0
+--- !u!114 &5705017753156583484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933860527830902299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &2711916243197269951
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +304,7 @@ GameObject:
   - component: {fileID: 4643994906233761821}
   - component: {fileID: 1089028611826675830}
   - component: {fileID: 8126886952808898364}
+  - component: {fileID: 2917925027315407753}
   m_Layer: 3
   m_Name: Purple (3)
   m_TagString: Enemy
@@ -393,6 +424,20 @@ MonoBehaviour:
   fallSpeed: 0
   material: 1
   isTargeted: 0
+--- !u!114 &2917925027315407753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2711916243197269951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &3678351198328649373
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +450,7 @@ GameObject:
   - component: {fileID: -7994446608630987029}
   - component: {fileID: 1555498540772446956}
   m_Layer: 3
-  m_Name: T Stone
+  m_Name: T stone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,7 +504,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -480,6 +525,7 @@ GameObject:
   - component: {fileID: 7592184876669451109}
   - component: {fileID: 1542049740003925099}
   - component: {fileID: 1001712672621427732}
+  - component: {fileID: 6125043910200060294}
   m_Layer: 3
   m_Name: Purple (2)
   m_TagString: Enemy
@@ -599,3 +645,17 @@ MonoBehaviour:
   fallSpeed: 0
   material: 1
   isTargeted: 0
+--- !u!114 &6125043910200060294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881138884830987158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
