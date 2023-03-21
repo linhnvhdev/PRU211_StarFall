@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 4
-  currentHealth: 0
+  currentHealth: 5
   speed: 6
   jumpingPower: 20
 --- !u!114 &1867500611687917928

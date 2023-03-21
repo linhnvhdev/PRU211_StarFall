@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 175897971}
   - component: {fileID: 175897974}
   - component: {fileID: 175897975}
+  - component: {fileID: 175897976}
   m_Layer: 5
   m_Name: ButtonKnight
   m_TagString: Untagged
@@ -478,7 +479,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 175897972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 175897976}
+        m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
+        m_MethodName: SaveSelectedCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &175897972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,6 +589,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSize: 1
   enlargedSize: 1.2
+--- !u!114 &175897976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175897969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ff84f8c19646488408038bad951ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197137071
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +615,7 @@ GameObject:
   - component: {fileID: 197137075}
   - component: {fileID: 197137074}
   - component: {fileID: 197137073}
+  - component: {fileID: 197137078}
   m_Layer: 5
   m_Name: ButtonGoblin
   m_TagString: Untagged
@@ -720,7 +746,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 197137076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 197137078}
+        m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
+        m_MethodName: SaveSelectedCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &197137076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +797,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197137071}
   m_CullTransparentMesh: 1
+--- !u!114 &197137078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197137071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ff84f8c19646488408038bad951ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213919877
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +907,7 @@ GameObject:
   - component: {fileID: 318927172}
   - component: {fileID: 318927171}
   - component: {fileID: 318927170}
+  - component: {fileID: 318927175}
   m_Layer: 5
   m_Name: ButtonMage
   m_TagString: Untagged
@@ -987,7 +1038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 318927173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 318927175}
+        m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
+        m_MethodName: SaveSelectedCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &318927173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,6 +1089,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318927168}
   m_CullTransparentMesh: 1
+--- !u!114 &318927175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318927168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ff84f8c19646488408038bad951ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &388253350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2696,7 @@ GameObject:
   - component: {fileID: 1407325811}
   - component: {fileID: 1407325810}
   - component: {fileID: 1407325809}
+  - component: {fileID: 1407325814}
   m_Layer: 5
   m_Name: ButtonGunner
   m_TagString: Untagged
@@ -2751,7 +2827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1407325812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1407325814}
+        m_TargetAssemblyTypeName: ChooseCharacter, Assembly-CSharp
+        m_MethodName: SaveSelectedCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1407325812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,6 +2878,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407325807}
   m_CullTransparentMesh: 1
+--- !u!114 &1407325814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407325807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ff84f8c19646488408038bad951ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1433158009
 GameObject:
   m_ObjectHideFlags: 0

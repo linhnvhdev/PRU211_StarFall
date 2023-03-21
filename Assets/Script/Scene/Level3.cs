@@ -32,7 +32,7 @@ public class Level3 : MonoBehaviour
     public float currentSpeedScale = 1f;
     public float timeToIncreaseSpeed = 10f;
     public float nextTimeToIncreaseSpeed;
-    public GameObject Player;
+    public GameObject Player = null;
 
    // private BossLaserGun laserBeamController;
 
@@ -40,6 +40,10 @@ public class Level3 : MonoBehaviour
     private bool gameOver = false;
     void Start()
     {
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime - spawnRate;
@@ -67,6 +71,10 @@ public class Level3 : MonoBehaviour
     }
         void Update()
     {
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         currentTime -= Time.deltaTime;
         if (gameOver || IsGameOver())
         {
