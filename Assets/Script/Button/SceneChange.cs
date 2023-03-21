@@ -33,4 +33,8 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Level 2");
     }
+    public void chooseCharacterScene()
+    {
+        SceneManager.LoadScene("Choose Character");
+    }
 }
