@@ -34,7 +34,8 @@ public class Enum
         HP3,
         COIN,
         BOMB,
-        SHIELD
+        SHIELD,
+        UPGRADE
     }
 
     public enum SceneIndex

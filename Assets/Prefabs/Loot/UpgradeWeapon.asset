@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5a07574ac758747bfe0394bb9ec829, type: 3}
   m_Name: UpgradeWeapon
   m_EditorClassIdentifier: 
-  lootSprite: {fileID: 0}
-  lootName: 
-  dropChance: 0
+  lootSprite: {fileID: -1800302616, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  lootName: UPGRADE
+  dropChance: 3
