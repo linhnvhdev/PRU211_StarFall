@@ -51,6 +51,10 @@ public class Level4 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime;
@@ -85,6 +89,10 @@ public class Level4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         currentTime -= Time.deltaTime;
         if (gameOver || IsGameOver())
         {
