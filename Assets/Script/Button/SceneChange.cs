@@ -41,4 +41,8 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Choose Character");
     }
+    public void chooseGuide()
+    {
+        SceneManager.LoadScene("Guide");
+    }
 }
