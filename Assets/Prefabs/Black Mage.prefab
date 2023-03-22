@@ -188,7 +188,7 @@ MonoBehaviour:
   IsActive: 1
   CanActivate: 1
   timer: 0
-  SkillCooldown: 10
+  SkillCooldown: 7
 --- !u!114 &6155720838965871593
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -200,11 +200,11 @@ public class SpawnEnemyLv2 : MonoBehaviour
     private void SpawnWave3()
     {
         int[] spawnPointX = { -11, -18, 0, 6, 3, -10, -14, -5, 0, -3, -8, -5, -10, 0, -2, -8, -5, -7, -3, -2, -17, -8, 4 };
-        GameObject[] enemies = { Iwood, Tiron, Iwood, Lgold, Ostone, Swood, Sgold, Jgold, Swood, Twood, Twood, Iwood, Jwood, Lwood, Iwood, Iwood, Iwood, Swood, Swood, Swood, Odiamond, Swood, Sdiamond };
+        GameObject[] enemies = { Iwood, Tiron, Iwood, Lgold, Ostone, Swood, Sgold, Sgold, Swood, Twood, Twood, Iwood, Jwood, Lwood, Iwood, Iwood, Iwood, Swood, Swood, Swood, Odiamond, Swood, Sdiamond };
         int[] rotateIndex = { 2, 2, 2, 1, 1, 1, 1, 1, 1, 3, 3, 1, 0, 2, 1, 1, 1, 2, 2, 2, 1, 2, 2 };
         if (currentTime < nextSpawnableTime)
         {
-            SpawnEnemy(enemies[currentEnemy - 46], new Vector2(spawnPointX[currentEnemy - 46], spawnHeight), rotateIndex[currentEnemy - 23]);
+            SpawnEnemy(enemies[currentEnemy - 46], new Vector2(spawnPointX[currentEnemy - 46], spawnHeight), rotateIndex[currentEnemy - 46]);
         }
     }
 
