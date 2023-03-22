@@ -136,9 +136,9 @@ public class Level3 : MonoBehaviour
     private void ShootLaserRandom()
     {
         Vector2 curSpawnPoint = (Vector2)LaserSpawnPoint[laserAndCountDownTextPointIndex].position;
-        Debug.Log("#####################################");
-        Debug.Log(LaserSpawnPoint.Length);
-        Debug.Log(Random.Range(0, LaserSpawnPoint.Length));
+        //Debug.Log("#####################################");
+        //Debug.Log(LaserSpawnPoint.Length);
+        //Debug.Log(Random.Range(0, LaserSpawnPoint.Length));
         //DebugPoint(curSpawnPoint);
 
      //   ChargeLaser();
