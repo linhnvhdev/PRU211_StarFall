@@ -576,7 +576,7 @@ MonoBehaviour:
   - {fileID: 8860414889392269929, guid: c1bcc6137aac94a42980a61c24f7057d, type: 3}
   - {fileID: 3678351198328649373, guid: 554c3b724708d974194e15b1492242b1, type: 3}
   - {fileID: 3162662246452268143, guid: ff61d4dde3382ff4a89c5b245c377c95, type: 3}
-  speed: 5
+  speed: 6
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -586,7 +586,7 @@ MonoBehaviour:
   levelPointManager: {fileID: 173535761}
   GameOverScreen: {fileID: 1113590708}
   GameWinScreen: {fileID: 1970008429}
-  spawnRate: 1.5
+  spawnRate: 1
   startTime: 300
   currentTime: 0
   gameState: 0
