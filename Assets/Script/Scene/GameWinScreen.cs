@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Enum;
 
 public class GameWinScreen : MonoBehaviour
 {
-    public Text pointsText;
+    public TextMeshProUGUI pointsText;
     public void Setup(int score)
     {
         gameObject.SetActive(true);
@@ -14,11 +16,22 @@ public class GameWinScreen : MonoBehaviour
     }
     public void NextLvButton()
     {
-        SceneManager.LoadScene("Level 1");
+        if(SceneManager.GetActiveScene().buildIndex == (int) SceneIndex.Level1)
+        {
+            SceneManager.LoadScene((int)SceneIndex.Level2);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level2)
+        {
+            SceneManager.LoadScene((int)SceneIndex.Level3);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level3)
+        {
+            SceneManager.LoadScene((int)SceneIndex.Level4);
+        }
     }
     public void ReTryButton()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ExitButton()
     {
