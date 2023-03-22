@@ -623,8 +623,8 @@ MonoBehaviour:
   totalPoint: 0
   PointWinGame: 100
   PointByTime: 4
-  currentTime: 10
-  levelTime: 10
+  currentTime: 0
+  levelTime: 300
   nextIncreasePointTime: 0
   pointIncreaseRate: 1
   isGameEnd: 0
