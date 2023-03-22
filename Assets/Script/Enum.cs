@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enum 
+public class Enum
 {
-    public enum BlockType {
+    public enum BlockType
+    {
         WOOD,
         STONE,
         IRON,
@@ -34,5 +35,13 @@ public class Enum
         COIN,
         BOMB,
         SHIELD
+    }
+
+    public enum SceneIndex
+    {
+        Level1 = 7,
+        Level2 = 9,
+        Level3 = 4,
+        Level4 = 5
     }
 }
