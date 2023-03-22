@@ -9,8 +9,8 @@ public class Gunner : MonoBehaviour, IPlayerType
     public float passiveHealthIncrease = -1;
     public float passiveSpeedIncrease = 3;
 
-    public float activeTime = 5;
-    public float attackSpeedIncrease = 2;
+    public float activeTime = 6;
+    public float attackSpeedIncrease = 3;
 
     public void UseSkill()
     {

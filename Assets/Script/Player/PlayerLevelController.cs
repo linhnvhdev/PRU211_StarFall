@@ -8,8 +8,8 @@ public class PlayerLevelController : MonoBehaviour
 {
     public int exp = 0;
     public int level = 1;
-    public int nextLevelExp = 10;
-    public float increaseExpRateByLevel = 1.5f;
+    public int nextLevelExp = 50;
+    public float increaseExpRateByLevel = 3f;
     public Player player;
 
 
@@ -25,6 +25,7 @@ public class PlayerLevelController : MonoBehaviour
         if(exp >= nextLevelExp)
         {
             level++;
+            if (level > 4) increaseExpRateByLevel = 2;
             exp = exp - nextLevelExp;
             nextLevelExp = (int) Mathf.Ceil(nextLevelExp * increaseExpRateByLevel);
             PowerUpPlayer();

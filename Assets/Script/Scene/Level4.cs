@@ -149,7 +149,8 @@ public class Level4 : MonoBehaviour
         {
             var bomb = obj.gameObject.AddComponent<Bomb>();
             bomb.range = 6;
-            bomb.damageToPlayer = 2;
+            bomb.damageToPlayer = 3;
+            bomb.damage = 3;
             
         }
         nextLandMineSpawnableTime -= landMineSpawnRate;

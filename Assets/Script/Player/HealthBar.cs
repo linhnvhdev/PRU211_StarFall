@@ -20,6 +20,7 @@ public class HealthBar : MonoBehaviour
     private void Update()
     {
         playerHealth = GameObject.FindObjectOfType<Player>();
+        if (playerHealth == null) return;
         currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
     }
 }

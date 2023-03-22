@@ -219,8 +219,8 @@ MonoBehaviour:
   ExploseTime: 20
   currentTime: 0
   range: 10
-  damage: 3
-  damageToPlayer: 3
+  damage: 1
+  damageToPlayer: 4
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8

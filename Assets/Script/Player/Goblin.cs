@@ -11,7 +11,7 @@ public class Goblin : MonoBehaviour, IPlayerType
     private Player player;
     public float passiveHealthIncrease = 1;
     public float attackSpeedIncrease = 2;
-    public float speedIncrease = 3;
+    public float speedIncrease = 6;
 
     public void UseSkill()
     {
