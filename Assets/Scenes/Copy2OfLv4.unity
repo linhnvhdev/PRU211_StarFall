@@ -2289,6 +2289,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 842468849045681270, guid: d7c24c49a47573e488fa6bc3b3a0fb3b, type: 3}
+      propertyPath: shield
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3802386520500221115, guid: d7c24c49a47573e488fa6bc3b3a0fb3b, type: 3}
       propertyPath: m_Name
       value: Gunner
