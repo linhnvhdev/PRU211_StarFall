@@ -156,6 +156,7 @@ public class PlayControllerScript : MonoBehaviour
                     break;
                 case ItemType.UPGRADE:
                     //Upgrade weapon
+                    GetComponentInChildren<SwitchingWeapon>().UpgradeWeapon();
                     break;
             }
             // Destroy item which is comsumed
