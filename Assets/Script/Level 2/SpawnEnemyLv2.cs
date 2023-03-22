@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Enum;
 
@@ -23,6 +24,7 @@ public class SpawnEnemyLv2 : MonoBehaviour
     public GameStateLv2 gameState;
     public int currentEnemy = 0;
     private GameObject Player;
+    private bool gameOver = false;
     #region Prefabs
     private GameObject Iwood;
     private GameObject Lwood;
@@ -112,18 +114,23 @@ public class SpawnEnemyLv2 : MonoBehaviour
 
         //Test
         SpawnWave1();
-        //
-        if (FindObjectOfType<Player>() != null)
-        {
-            Player = FindObjectOfType<Player>().gameObject;
-        }
+        //      
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         //Track time
         currentTime -= Time.deltaTime;
+        if (gameOver || IsGameOver())
+        {
+            GameOver();
+            return;
+        }
         if (currentEnemy < 23)
         {
             gameState = GameStateLv2.SPAWN_WAVE1;
@@ -245,5 +252,33 @@ public class SpawnEnemyLv2 : MonoBehaviour
             blockMovement.speed = childrenFallSpeed + speed;
         }
         nextSpawnableTime = currentTime - spawnRate;
+    }
+
+    bool IsGameOver()
+    {
+        var list = FindObjectsOfType<EnemyMovement>().ToList();
+        foreach (var enemy in list)
+        {
+            if (!enemy.checkBelow() && !enemy.isGrounded) continue;
+            foreach (Transform enemyChild in enemy.transform)
+            {
+                if (enemyChild.position.y >= 11.5)
+                    return true;
+            }
+        }
+        if (Player.GetComponent<Player>().currentHealth <= 0)
+        {
+            Destroy(Player);
+            return true;
+        }
+        return false;
+    }
+
+    void GameOver()
+    {
+        Debug.Log("game over");
+        gameOver = true;
+        //var bomb = GameObject.FindObjectOfType<BombCore>();
+        //Destroy(bomb);
     }
 }
