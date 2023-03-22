@@ -74,6 +74,7 @@ public class Level3 : MonoBehaviour
     }
         void Update()
     {
+        if (gameOver) return;
         if (FindObjectOfType<Player>() != null)
         {
             Player = FindObjectOfType<Player>().gameObject;
@@ -84,7 +85,8 @@ public class Level3 : MonoBehaviour
         {
             GameWin();
         }
-        if (gameOver || IsGameOver())
+        
+        if (IsGameOver())
         {
             GameOver();
             return;
@@ -106,7 +108,7 @@ public class Level3 : MonoBehaviour
     {
         //levelPointManager.GameOver(false);
         //gameOver = true;
-        GameWinScreen.Setup(maxPlasform);
+        GameWinScreen.Setup(levelPointManager.totalPoint);
     }
     public void ChargeLaser()
     {
@@ -197,7 +199,7 @@ public class Level3 : MonoBehaviour
     {
         gameOver = true;
         Debug.Log("game over");
-        GameOverScreen.Setup(maxPlasform);
+        GameOverScreen.Setup(levelPointManager.totalPoint);
     }
     void DebugPoint(Vector2 point)
     {

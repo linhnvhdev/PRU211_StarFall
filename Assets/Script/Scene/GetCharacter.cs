@@ -6,7 +6,7 @@ public class GetCharacter : MonoBehaviour
 {
     [SerializeField] public GameObject[] _PlayerPrefabs;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Debug.Log("The character player choosen: " + PlayerPrefs.GetString("chooseCharacter"));
         string characterName = PlayerPrefs.GetString("chooseCharacter");
