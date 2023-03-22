@@ -20,9 +20,11 @@ public class Timer : MonoBehaviour
     public bool hasFormat;
     public TimerFormats format;
     private Dictionary<TimerFormats, string> timeFormats = new Dictionary<TimerFormats, string>();
-
+    private LevelPointManager levelPointManager;
     private void Start()
     {
+        levelPointManager=GameObject.FindObjectOfType<LevelPointManager>();
+        currentTime = levelPointManager.levelTime;
         timeFormats.Add(TimerFormats.Whole, "0");
         timeFormats.Add(TimerFormats.TenthDecimal, "0.0");
         timeFormats.Add(TimerFormats.HundredDecimal, "0.00");
