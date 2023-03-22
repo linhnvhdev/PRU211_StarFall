@@ -13,6 +13,9 @@ public class SpawnEnemyLv2 : MonoBehaviour
     [SerializeField] int minX = -19;
     [SerializeField] int maxX = 9;
     [SerializeField] int spawnHeight = 14;
+    public LevelPointManager levelPointManager;
+    public GameOverScreen GameOverScreen;
+    public GameWinScreen GameWinScreen;
     private Quaternion[] rotations = { Quaternion.Euler(0, 0, -90),
                                          Quaternion.Euler(0, 0, 0),
                                          Quaternion.Euler(0, 0, 90),
@@ -126,10 +129,15 @@ public class SpawnEnemyLv2 : MonoBehaviour
         }
         //Track time
         currentTime -= Time.deltaTime;
-        if (gameOver || IsGameOver())
+        if (gameOver) return;
+        if (IsGameOver())
         {
             GameOver();
             return;
+        }
+        if (currentTime <= 0)
+        {
+            GameWin();
         }
         if (currentEnemy < 23)
         {
@@ -139,7 +147,7 @@ public class SpawnEnemyLv2 : MonoBehaviour
         {
             gameState = GameStateLv2.SPAWN_WAVE2;
         }
-        else if (currentEnemy >= 46 && currentTime < 100)
+        else if ((currentEnemy >= 46 && currentEnemy <69) && currentTime < 100)
         {
             gameState = GameStateLv2.SPAWN_WAVE3;
         }
@@ -278,7 +286,15 @@ public class SpawnEnemyLv2 : MonoBehaviour
     {
         Debug.Log("game over");
         gameOver = true;
+        GameOverScreen.Setup(levelPointManager.totalPoint);
         //var bomb = GameObject.FindObjectOfType<BombCore>();
         //Destroy(bomb);
+    }
+
+    private void GameWin()
+    {
+        levelPointManager.GameOver(false);
+        gameOver = true;
+        GameWinScreen.Setup(levelPointManager.totalPoint);
     }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootSprite: {fileID: -1800302616, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
   lootName: UPGRADE
-  dropChance: 2
+  dropChance: 12

@@ -11,24 +11,48 @@ public class UiScript : MonoBehaviour
     public TextMeshProUGUI txtLevel;
     public TextMeshProUGUI txtExp;
     public TextMeshProUGUI txtScore;
-    //public TextMeshProUGUI txtWeaponName;
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI skillCooldownText;
+    private PlayerSkillController playerSkillController;
+    private float skillCooldown;
+    private float timer;
+     void Start()
     {
         switchingWeapon = GameObject.FindObjectOfType<SwitchingWeapon>();
         playerLevelController = GameObject.FindObjectOfType<PlayerLevelController>();
         levelPointManager = GameObject.FindObjectOfType<LevelPointManager>();
+        playerSkillController = FindObjectOfType<PlayerSkillController>();
+        skillCooldown = playerSkillController.SkillCooldown;
+        timer = playerSkillController.timer;
+            skillCooldownText.enabled = true;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //txtWeaponName.text = switchingWeapon.currentWeapon.name.ToUpper();
         txtExp.text = playerLevelController.exp.ToString() + " / " + playerLevelController.nextLevelExp.ToString();
         txtLevel.text = playerLevelController.level.ToString();
         txtScore.text = levelPointManager.totalPoint.ToString();
+        timer += Time.time;
+         //if(timer >= skillCooldown )
+         if(playerSkillController.CanActivate== true )
+        {
+            skillCooldownText.enabled = true;
+
+        }
+        else /*if (timer < skillCooldown)*/
+            skillCooldownText.enabled = false;
+
+
+
+
+
+
+
 
     }
+
+
 }
-// score : total point trong levelPointMa
-// level,exp : player level controller 
+ 
