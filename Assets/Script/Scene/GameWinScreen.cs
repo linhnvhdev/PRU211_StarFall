@@ -22,11 +22,11 @@ public class GameWinScreen : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level2)
         {
-            SceneManager.LoadScene((int)SceneIndex.Level3);
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level3)
-        {
             SceneManager.LoadScene((int)SceneIndex.Level4);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level4)
+        {
+            SceneManager.LoadScene((int)SceneIndex.Level3);
         }
     }
     public void ReTryButton()
@@ -35,6 +35,6 @@ public class GameWinScreen : MonoBehaviour
     }
     public void ExitButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("StartScene");
     }
 }

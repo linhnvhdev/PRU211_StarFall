@@ -96,7 +96,8 @@ public class Level4 : MonoBehaviour
             Player = FindObjectOfType<Player>().gameObject;
         }
         currentTime -= Time.deltaTime;
-        if (gameOver || IsGameOver())
+        if (gameOver) return;
+        if (IsGameOver())
         {
             GameOver();
             return;
