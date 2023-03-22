@@ -11,7 +11,7 @@ public class UiScript : MonoBehaviour
     public TextMeshProUGUI txtLevel;
     public TextMeshProUGUI txtExp;
     public TextMeshProUGUI txtScore;
-    public TextMeshProUGUI txtWeaponName;
+    //public TextMeshProUGUI txtWeaponName;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class UiScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txtWeaponName.text = switchingWeapon.currentWeapon.name.ToUpper();
+        //txtWeaponName.text = switchingWeapon.currentWeapon.name.ToUpper();
         txtExp.text = playerLevelController.exp.ToString() + " / " + playerLevelController.nextLevelExp.ToString();
         txtLevel.text = playerLevelController.level.ToString();
         txtScore.text = levelPointManager.totalPoint.ToString();

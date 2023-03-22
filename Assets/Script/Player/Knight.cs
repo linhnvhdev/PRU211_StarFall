@@ -20,17 +20,17 @@ public class Knight : MonoBehaviour, IPlayerType
     public void SetBaseStat()
     {
         player = GetComponent<Player>();
-        player.IncreaseHealth(passiveHealthIncrease);
+        player.IncreaseMaxhealth(passiveHealthIncrease);
     }
 
     IEnumerator ActivateSkill()
     {
-        float healthBefore = player.currentHealth;
-        player.IncreaseHealth(skillHealthIncrease);
+        player.shield += skillHealthIncrease;
         yield return new WaitForSeconds(activeTime);
-        if(player.currentHealth > healthBefore)
+        player.shield -= skillHealthIncrease;
+        if (player.shield < 0)
         {
-            player.SetHealth(healthBefore);
+            player.shield = 0;
         }
         Debug.Log("after go back: " + player.currentHealth);
     }

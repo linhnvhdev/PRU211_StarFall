@@ -33,7 +33,7 @@ public class Gunner : MonoBehaviour, IPlayerType
     public void SetBaseStat()
     {
         player = GetComponent<Player>();
-        player.currentHealth += (passiveHealthIncrease);
+        player.IncreaseMaxhealth(passiveHealthIncrease);
         player.speed += (passiveSpeedIncrease);
     }
 

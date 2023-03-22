@@ -113,29 +113,17 @@ public class PlayControllerScript : MonoBehaviour
             {
                 case ItemType.HP1:
                     Debug.Log("+1 hp");
-                    player.currentHealth += 1;
-                    if (player.currentHealth > player.startingHealth)
-                    {
-                        player.currentHealth = player.startingHealth;
-                    }
+                    player.IncreaseHealth(1);
 
                     break;
                 case ItemType.HP2:
                     Debug.Log("+2 hp");
-                    player.currentHealth += 2;
-                    if (player.currentHealth > player.startingHealth)
-                    {
-                        player.currentHealth = player.startingHealth;
-                    }
+                    player.IncreaseHealth(2);
 
                     break;
                 case ItemType.HP3:
                     Debug.Log("+3 hp");
-                    player.currentHealth += 3;
-                    if (player.currentHealth > player.startingHealth)
-                    {
-                        player.currentHealth = player.startingHealth;
-                    }
+                    player.IncreaseHealth(3);
 
                     break;
                 case ItemType.SHIELD:
@@ -147,7 +135,7 @@ public class PlayControllerScript : MonoBehaviour
                     break;
                 case ItemType.BOMB:
                     Vector2 bombLocation = collision.transform.position;
-                    var enemyList = Physics2D.OverlapCircleAll(bombLocation, 2, enemyLayer);
+                    var enemyList = Physics2D.OverlapCircleAll(bombLocation, 4, enemyLayer);
                     Debug.Log("buum bomb hit " + enemyList.Length);
                     foreach (var enemy in enemyList)
                     {
@@ -171,12 +159,12 @@ public class PlayControllerScript : MonoBehaviour
     }
     IEnumerator ActivateShield(float activeTime, float passiveHealth)
     {
-        float healthBefore = player.currentHealth;
-        player.IncreaseHealth(passiveHealth);
+        player.shield += passiveHealth;
         yield return new WaitForSeconds(activeTime);
-        if (player.currentHealth > healthBefore)
+        player.shield -= passiveHealth;
+        if(player.shield < 0)
         {
-            player.SetHealth(healthBefore);
+            player.shield = 0;
         }
         Debug.Log("after go back: " + player.currentHealth);
     }
