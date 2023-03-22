@@ -118,11 +118,14 @@ public class Level1 : MonoBehaviour
                     return true;
             }
         }
-        if (Player.GetComponent<Player>().currentHealth <= 0)
+        if(Player != null)
         {
-            Destroy(Player);
-            return true;
-        }
+            if (Player.GetComponent<Player>().currentHealth <= 0)
+            {
+                Destroy(Player);
+                return true;
+            }
+        }      
         return false;
     }
 
