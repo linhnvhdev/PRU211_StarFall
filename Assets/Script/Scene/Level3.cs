@@ -33,8 +33,11 @@ public class Level3 : MonoBehaviour
     public float timeToIncreaseSpeed = 10f;
     public float nextTimeToIncreaseSpeed;
     public GameObject Player = null;
+    public GameWinScreen GameWinScreen;
+    int maxPlasform = 0;
+    public GameOverScreen GameOverScreen;
 
-   // private BossLaserGun laserBeamController;
+    // private BossLaserGun laserBeamController;
 
     public LevelPointManager levelPointManager;
     private bool gameOver = false;
@@ -75,7 +78,12 @@ public class Level3 : MonoBehaviour
         {
             Player = FindObjectOfType<Player>().gameObject;
         }
+
         currentTime -= Time.deltaTime;
+        if (currentTime <= 0)
+        {
+            GameWin();
+        }
         if (gameOver || IsGameOver())
         {
             GameOver();
@@ -96,8 +104,9 @@ public class Level3 : MonoBehaviour
     }
     private void GameWin()
     {
-        levelPointManager.GameOver(false);
-        gameOver = true;
+        //levelPointManager.GameOver(false);
+        //gameOver = true;
+        GameWinScreen.Setup(maxPlasform);
     }
     public void ChargeLaser()
     {
@@ -130,7 +139,7 @@ public class Level3 : MonoBehaviour
         Debug.Log("#####################################");
         Debug.Log(LaserSpawnPoint.Length);
         Debug.Log(Random.Range(0, LaserSpawnPoint.Length));
-        DebugPoint(curSpawnPoint);
+        //DebugPoint(curSpawnPoint);
 
      //   ChargeLaser();
         if (currentTime <= nextLaserSpawnableTime)
@@ -173,10 +182,13 @@ public class Level3 : MonoBehaviour
                     return true;
             }
         }
-        if (Player.GetComponent<Player>().currentHealth <= 0)
+        if (Player != null)
         {
-            Destroy(Player);
-            return true;
+            if (Player.GetComponent<Player>().currentHealth <= 0)
+            {
+                Destroy(Player);
+                return true;
+            }
         }
         return false;
     }
@@ -185,6 +197,7 @@ public class Level3 : MonoBehaviour
     {
         gameOver = true;
         Debug.Log("game over");
+        GameOverScreen.Setup(maxPlasform);
     }
     void DebugPoint(Vector2 point)
     {
