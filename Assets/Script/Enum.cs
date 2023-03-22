@@ -40,9 +40,9 @@ public class Enum
 
     public enum SceneIndex
     {
-        Level1 = 7,
-        Level2 = 9,
-        Level3 = 4,
-        Level4 = 5
+        Level1 = 5,
+        Level2 = 7,
+        Level3 = 3,
+        Level4 = 4
     }
 }
