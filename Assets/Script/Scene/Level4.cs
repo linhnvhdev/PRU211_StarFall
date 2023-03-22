@@ -162,7 +162,7 @@ public class Level4 : MonoBehaviour
         if (currentSpeedScale > speedLimitScale) fallSpeedScale = 1;
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
-        if(spawnRate > 1) spawnRate -= 0.5f;
+        if(spawnRate > 1f) spawnRate -= 0.5f;
     }
 
     private void DropBombRandom()

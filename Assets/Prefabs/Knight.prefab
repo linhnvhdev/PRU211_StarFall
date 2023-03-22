@@ -348,7 +348,7 @@ MonoBehaviour:
   IsActive: 1
   CanActivate: 1
   timer: 0
-  SkillCooldown: 5
+  SkillCooldown: 10
 --- !u!114 &1867500611687917934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5530685e09d4b19439419827f055cc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillHealthIncrease: 3
+  skillHealthIncrease: 7
   activeTime: 3
   passiveHealthIncrease: 1
 --- !u!95 &916202922071229756

@@ -216,10 +216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BombCore: {fileID: 477894347987945223}
-  ExploseTime: 20
+  ExploseTime: 15
   currentTime: 0
   range: 10
-  damage: 1
+  damage: 3
   damageToPlayer: 4
   enemyLayerMask:
     serializedVersion: 2

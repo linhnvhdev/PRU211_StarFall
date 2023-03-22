@@ -6,7 +6,7 @@ using UnityEngine;
 public class Knight : MonoBehaviour, IPlayerType
 {
 
-    public float skillHealthIncrease = 3;
+    public float skillHealthIncrease = 7;
     public float activeTime = 3;
 
     private Player player;
