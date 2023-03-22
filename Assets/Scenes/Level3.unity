@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b6c3c76e107fe4dadd57c06d4bba36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 180
+  levelTime: 10
   currentTime: 0
   enemyController: {fileID: 858820249}
   LaserSpawnPoint:

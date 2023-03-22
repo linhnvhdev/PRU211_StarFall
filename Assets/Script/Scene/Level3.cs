@@ -106,8 +106,8 @@ public class Level3 : MonoBehaviour
     }
     private void GameWin()
     {
-        //levelPointManager.GameOver(false);
-        //gameOver = true;
+        levelPointManager.GameOver(false);
+        gameOver = true;
         GameWinScreen.Setup(levelPointManager.totalPoint);
     }
     public void ChargeLaser()
