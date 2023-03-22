@@ -20,7 +20,7 @@ public class Goblin : MonoBehaviour, IPlayerType
     public void SetBaseStat()
     {
         player = GetComponent<Player>();
-        player.IncreaseHealth(passiveHealthIncrease);
+        player.IncreaseMaxhealth(passiveHealthIncrease);
     }
 
     IEnumerator ActivateSkill()

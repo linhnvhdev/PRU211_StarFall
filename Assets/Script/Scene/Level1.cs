@@ -38,6 +38,10 @@ public class Level1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         // Set time
         currentTime = levelTime;
         nextSpawnableTime = levelTime;
@@ -64,6 +68,12 @@ public class Level1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameOver) 
+            return;
+        if (FindObjectOfType<Player>() != null)
+        {
+            Player = FindObjectOfType<Player>().gameObject;
+        }
         currentTime -= Time.deltaTime;
         if (gameOver || IsGameOver())
         {
@@ -90,7 +100,9 @@ public class Level1 : MonoBehaviour
 
     private void GameWin()
     {
-        GameWinScreen.Setup(maxPlasform);
+        GameWinScreen.Setup(levelPointManager.totalPoint);
+        levelPointManager.GameOver(false);
+        gameOver = true;
     }
 
    
@@ -131,7 +143,8 @@ public class Level1 : MonoBehaviour
 
     void GameOver()
     {
-        GameOverScreen.Setup(maxPlasform);
+        GameOverScreen.Setup(levelPointManager.totalPoint);
+        gameOver=true;
     }
 
     void SpawnEnemy()

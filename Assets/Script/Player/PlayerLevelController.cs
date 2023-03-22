@@ -34,6 +34,6 @@ public class PlayerLevelController : MonoBehaviour
     private void PowerUpPlayer()
     {
         // do something
-        player.currentHealth++;
+        player.IncreaseMaxhealth(1);
     }
 }

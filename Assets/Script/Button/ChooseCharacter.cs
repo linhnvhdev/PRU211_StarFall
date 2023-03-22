@@ -28,6 +28,10 @@ public class ChooseCharacter : MonoBehaviour
         {
              value = "Gunner"; 
         }
+        if (this.name == "ButtonGoblin")
+        {
+            value = "Goblin";
+        }
         PlayerPrefs.SetString(key, value);
         Debug.Log("Choose character: " + value);
         SceneManager.LoadScene("GameMode");

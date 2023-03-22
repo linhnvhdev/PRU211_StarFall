@@ -178,6 +178,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Offset: 0
+  isAttackPressed: 0
+  isAttacking: 0
 --- !u!58 &8058328465565043711
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -109,23 +109,63 @@ public class PlayControllerScript : MonoBehaviour
         if (collision.CompareTag("Consumable"))
         {
             ItemType itemType = collision.gameObject.GetComponent<ConsumableScript>().itemType;
-            if (itemType == ItemType.HP1)
+            switch (itemType)
             {
-                Debug.Log("add 1 health");
-            }
-            else if (itemType == ItemType.COIN)
-            {
-                //+2 hp
-                Debug.Log("add 1 coin");
-            }
-            else if (itemType == ItemType.SHIELD)
-            {
+                case ItemType.HP1:
+                    Debug.Log("+1 hp");
+                    player.IncreaseHealth(1);
 
-                Debug.Log("add 1 shield");
+                    break;
+                case ItemType.HP2:
+                    Debug.Log("+2 hp");
+                    player.IncreaseHealth(2);
+
+                    break;
+                case ItemType.HP3:
+                    Debug.Log("+3 hp");
+                    player.IncreaseHealth(3);
+
+                    break;
+                case ItemType.SHIELD:
+                    Debug.Log("shield");
+                    float activeTime = 10;
+                    float passiveHealth = 2;
+                    StartCoroutine(ActivateShield(activeTime, passiveHealth));
+
+                    break;
+                case ItemType.BOMB:
+                    Vector2 bombLocation = collision.transform.position;
+                    var enemyList = Physics2D.OverlapCircleAll(bombLocation, 4, enemyLayer);
+                    Debug.Log("buum bomb hit " + enemyList.Length);
+                    foreach (var enemy in enemyList)
+                    {
+                        Destroy(enemy.gameObject);
+                    }
+                    break;
+                case ItemType.UPGRADE:
+                    //Upgrade weapon
+                    GetComponentInChildren<SwitchingWeapon>().UpgradeWeapon();
+                    break;
             }
             // Destroy item which is comsumed
             Destroy(collision.gameObject);
         }
 
+    }
+    IEnumerator DestroyItem(GameObject item, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(item);
+    }
+    IEnumerator ActivateShield(float activeTime, float passiveHealth)
+    {
+        player.shield += passiveHealth;
+        yield return new WaitForSeconds(activeTime);
+        player.shield -= passiveHealth;
+        if(player.shield < 0)
+        {
+            player.shield = 0;
+        }
+        Debug.Log("after go back: " + player.currentHealth);
     }
 }

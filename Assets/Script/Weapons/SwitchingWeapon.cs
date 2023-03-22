@@ -16,8 +16,8 @@ public class SwitchingWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         totalWeapon = weaponHolder.transform.childCount;
+        weaponIconHolder = GameObject.Find("WeaponMiniIcon");
         totalWeaponIcon = weaponIconHolder.transform.childCount;
         weaponsIcons = new GameObject[totalWeaponIcon];
         weapons = new GameObject[totalWeapon];
@@ -43,95 +43,33 @@ public class SwitchingWeapon : MonoBehaviour
         }
         currentWeaponIndex = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void UpgradeWeapon()
     {
-        // switching to the next weapon
-        if (Input.GetKeyUp(KeyCode.M))
+        if (currentWeaponIndex < totalWeapon - 1)
         {
-            if (currentWeaponIndex < totalWeapon - 1)
+            Debug.Log("Upgrade");
+            weapons[currentWeaponIndex].SetActive(false);
+            for (int i = 0; i < totalWeaponIcon; i++)
             {
-                weapons[currentWeaponIndex].SetActive(false);
-                for (int i = 0; i < totalWeaponIcon; i++)
+                if (weaponsIcons[i].name.ToLower().Equals(weapons[currentWeaponIndex].name.ToLower()))
                 {
-                    if (weaponsIcons[i].name.ToLower().Equals(weapons[currentWeaponIndex].name.ToLower()))
-                    {
-                        weaponsIcons[i].SetActive(false);
+                    weaponsIcons[i].SetActive(false);
 
-                    }
-                }
-                currentWeaponIndex += 1;
-                currentWeapon = weapons[currentWeaponIndex];
-                weapons[currentWeaponIndex].SetActive(true);
-
-                for (int i = 0; i < totalWeaponIcon; i++)
-                {
-                    if (weaponsIcons[i].name.ToLower().Equals(currentWeapon.name.ToLower()))
-                        weaponsIcons[i].SetActive(true);
                 }
             }
-            else
+            currentWeaponIndex += 1;
+            currentWeapon = weapons[currentWeaponIndex];
+            weapons[currentWeaponIndex].SetActive(true);
+            for (int i = 0; i < totalWeaponIcon; i++)
             {
-                weapons[currentWeaponIndex].SetActive(false);
-                for (int i = 0; i < totalWeaponIcon; i++)
+                if (weaponsIcons[i].name.ToLower().Equals(currentWeapon.name.ToLower()))
                 {
-                    if (weaponsIcons[i].name.ToLower().Equals(weapons[currentWeaponIndex].name.ToLower()))
-                    {
-                        weaponsIcons[i].SetActive(false);
+                    weaponsIcons[i].SetActive(true);
 
-                    }
                 }
-                currentWeaponIndex = 0;
-                currentWeapon = weapons[currentWeaponIndex];
-                weapons[currentWeaponIndex].SetActive(true);
-                for (int i = 0; i < totalWeaponIcon; i++)
-                {
-                    if (weaponsIcons[i].name.ToLower().Equals(currentWeapon.name.ToLower()))
-                        weaponsIcons[i].SetActive(true);
-                }
-
             }
-
         }
-        // switching back  to the previous weapon
-        if (Input.GetKeyUp(KeyCode.N))
-
-            if (currentWeaponIndex > 0)
-            {
-                weapons[currentWeaponIndex].SetActive(false);
-                for (int i = 0; i < totalWeaponIcon; i++)
-                {
-                    if (weaponsIcons[i].name.ToLower().Equals(weapons[currentWeaponIndex].name.ToLower()))
-                        weaponsIcons[i].SetActive(false);
-                }
-                currentWeaponIndex -= 1;
-                currentWeapon = weapons[currentWeaponIndex];
-                weapons[currentWeaponIndex].SetActive(true);
-                for (int i = 0; i < totalWeaponIcon; i++)
-                {
-                    if (weaponsIcons[i].name.ToLower().Equals(currentWeapon.name.ToLower()))
-                        weaponsIcons[i].SetActive(true);
-                }
-            }
-            else
-            {
-                weapons[currentWeaponIndex].SetActive(false);
-                for (int i = 0; i < totalWeaponIcon; i++)
-                {
-                    if (weaponsIcons[i].name.ToLower().Equals(weapons[currentWeaponIndex].name.ToLower()))
-                        weaponsIcons[i].SetActive(false);
-                }
-                currentWeaponIndex = totalWeapon - 1;
-                currentWeapon = weapons[currentWeaponIndex];
-                weapons[currentWeaponIndex].SetActive(true);
-                for (int i = 0; i < totalWeaponIcon; i++)
-                {
-                    if (weaponsIcons[i].name.ToLower().Equals(currentWeapon.name.ToLower()))
-                        weaponsIcons[i].SetActive(true);
-                }
-
-            }
     }
-}
 
+
+}
