@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using static Enum;
 
 public class GameOverScreen : MonoBehaviour
 {
