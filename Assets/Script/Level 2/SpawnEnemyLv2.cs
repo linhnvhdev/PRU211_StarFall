@@ -147,7 +147,7 @@ public class SpawnEnemyLv2 : MonoBehaviour
         {
             gameState = GameStateLv2.SPAWN_WAVE2;
         }
-        else if (currentEnemy >= 46 && currentTime < 100)
+        else if ((currentEnemy >= 46 && currentEnemy <69) && currentTime < 100)
         {
             gameState = GameStateLv2.SPAWN_WAVE3;
         }
