@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5051336295149034112}
   - component: {fileID: 5051336295149034175}
-  - component: {fileID: 5051336295149034174}
   - component: {fileID: 5051336295149034173}
   - component: {fileID: 5051336295149034172}
   - component: {fileID: 5051336295149034171}
@@ -120,27 +119,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!50 &5051336295149034174
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5051336295149034170}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &5051336295149034173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,9 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5051336294816789653}
   bulletPrefab: {fileID: 5322868384099626643, guid: a74928f4b5efa0443bc818fad6bfd2e3, type: 3}
-  rb: {fileID: 5051336295149034174}
+  rb: {fileID: 0}
   bulletForce: 20
   Offset: -135
+  OffsetFirePoint: -90
 --- !u!114 &5051336295149034171
 MonoBehaviour:
   m_ObjectHideFlags: 0
