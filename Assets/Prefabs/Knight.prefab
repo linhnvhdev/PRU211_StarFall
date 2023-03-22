@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exp: 0
   level: 1
-  nextLevelExp: 10
+  nextLevelExp: 30
   increaseExpRateByLevel: 1.5
   player: {fileID: 1867500611687917934}
 --- !u!114 &2783074460304845216

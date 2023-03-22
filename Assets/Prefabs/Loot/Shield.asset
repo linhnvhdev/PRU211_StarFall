@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootSprite: {fileID: 1799780753, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
   lootName: SHIELD
-  dropChance: 30
+  dropChance: 10
