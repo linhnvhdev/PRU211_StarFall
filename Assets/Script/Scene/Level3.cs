@@ -31,6 +31,7 @@ public class Level3 : MonoBehaviour
     public float fallSpeedScale = 1.1f;
     public float currentSpeedScale = 1f;
     public float timeToIncreaseSpeed = 10f;
+    public float speedLimitScale = 5;
     public float nextTimeToIncreaseSpeed;
     public GameObject Player = null;
     public GameWinScreen GameWinScreen;
@@ -157,9 +158,10 @@ public class Level3 : MonoBehaviour
 
     private void IncreaseFallSpeed()
     {
+        if (currentSpeedScale > speedLimitScale) fallSpeedScale = 1;
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
-        spawnRate -= 0.2f;
+        if (spawnRate > 2) spawnRate -= 0.5f;
     }
     void SpawnEnemy()
     {
