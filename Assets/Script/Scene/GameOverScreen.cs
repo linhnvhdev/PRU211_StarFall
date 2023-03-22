@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class GameOverScreen : MonoBehaviour
 {
-    public Text pointsText;
+    public TextMeshProUGUI pointsText;
     public void Setup(int score)
     {
         gameObject.SetActive(true);
-        pointsText.text = score.ToString() + "POINTS";
+        pointsText.text = score.ToString() + " POINTS";
     }
     public void RestartButton()
     {
@@ -17,7 +19,7 @@ public class GameOverScreen : MonoBehaviour
     }
     public void ExitButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("StartScene");
     }
 
 }

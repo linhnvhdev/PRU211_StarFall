@@ -32,7 +32,7 @@ public class SoundManager : MonoBehaviour
            
             LoadMute();
         }
-        UpdateButtonIcon();
+        
         AudioListener.pause = muted;
     }
 
@@ -46,6 +46,7 @@ public class SoundManager : MonoBehaviour
     public void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        
     }
     public void Save()
     {
@@ -67,19 +68,7 @@ public class SoundManager : MonoBehaviour
         SaveMute();
     }
 
-    private void UpdateButtonIcon()
-    {
-        if(muted == false)
-        {
-            OnIcon.enabled = true;
-            OffIcon.enabled = false;
-        }
-       else
-        {
-            OnIcon.enabled = false;
-            OffIcon.enabled = true;
-        }
-    }
+  
 
     private void LoadMute()
     {

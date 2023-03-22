@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 173535758}
   - component: {fileID: 173535759}
   - component: {fileID: 173535760}
+  - component: {fileID: 173535761}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -234,6 +235,26 @@ MonoBehaviour:
   - {fileID: 6974783901585007890, guid: e67244c88ced5c048b91cd564a9f6872, type: 3}
   - {fileID: 3802386520500221115, guid: d7c24c49a47573e488fa6bc3b3a0fb3b, type: 3}
   - {fileID: 2783074460304845219, guid: 3508eb4802e4f4b468197e501df48684, type: 3}
+--- !u!114 &173535761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173535756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff3aab5fca4d3d418578649bd2c8b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalPoint: 0
+  PointWinGame: 100
+  PointByTime: 4
+  currentTime: 0
+  levelTime: 0
+  nextIncreasePointTime: 0
+  pointIncreaseRate: 1
+  isGameEnd: 0
 --- !u!1 &265939074
 GameObject:
   m_ObjectHideFlags: 0
