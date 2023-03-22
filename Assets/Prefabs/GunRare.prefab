@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 3
-  AttackSpeed: 1.5
+  AttackSpeed: 3
   Rank: normal
   IsActive: 1
   CanAttack: 1
