@@ -14,12 +14,18 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        playerHealth = GameObject.FindObjectOfType<Player>();
-        totalHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        if (FindObjectOfType<Player>() != null)
+        {
+            playerHealth = GameObject.FindObjectOfType<Player>();
+            totalHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        }
     }
     private void Update()
     {
-        playerHealth = GameObject.FindObjectOfType<Player>();
-        currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        if (FindObjectOfType<Player>() != null)
+        {
+           
+            currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        }
     }
 }
