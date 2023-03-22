@@ -9,5 +9,4 @@ public class ResetPlayerPrefs : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("chooseCharacter");
     }
-
 }

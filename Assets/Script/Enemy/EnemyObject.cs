@@ -97,6 +97,11 @@ public class EnemyObject : MonoBehaviour
 
     public void Destroy()
     {
+        if(GetComponent<Bomb>() != null)
+        {
+            Debug.Log("Explode");
+        }
+        
         lootBag.InstantiateLoot(transform.position);
         Destroy(this.gameObject);
     }

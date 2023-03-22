@@ -45,26 +45,25 @@ public class Lootbag : MonoBehaviour
             GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
             string name = droppedItem.lootName;
             lootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.lootSprite;
-            ItemType itemType = lootGameObject.GetComponent<ConsumableScript>().itemType;
             switch (name)
             {
                 case "HP1":
-                    itemType = ItemType.HP1;
+                    lootGameObject.GetComponent<ConsumableScript>().itemType = ItemType.HP1;
                     break;
                 case "HP2":
-                    itemType = ItemType.HP2;
+                    lootGameObject.GetComponent<ConsumableScript>().itemType = ItemType.HP2;
                     break;
                 case "HP3":
-                    itemType = ItemType.HP3;
+                    lootGameObject.GetComponent<ConsumableScript>().itemType = ItemType.HP3;
                     break;
                 case "SHIELD":
-                    itemType = ItemType.SHIELD;
+                    lootGameObject.GetComponent<ConsumableScript>().itemType = ItemType.SHIELD;
                     break;
-                case "COIN":
-                    itemType = ItemType.COIN;
+                case "UPGRADE":
+                    lootGameObject.GetComponent<ConsumableScript>().itemType = ItemType.UPGRADE;
                     break;
                 case "BOMB":
-                    itemType = ItemType.BOMB;
+                    lootGameObject.GetComponent<ConsumableScript>().itemType = ItemType.BOMB;
                     break;
             }
         }
