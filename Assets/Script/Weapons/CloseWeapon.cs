@@ -40,15 +40,13 @@ public class CloseWeapon : MonoBehaviour
         // attack if press mouse
         if (isAttackPressed)
         {
-            isAttackPressed = false;
-            if (!isAttacking)
+            if (weapon.CanAttack)
             {
-                isAttacking = true;
+                weapon.Attack();
                 ChangeAnimationState("Sword_Attack");
-                Invoke("Attack", 0.3f);             
-            }
-            Invoke("AttackComplete", 1f);
-            
+                Invoke("Attack", 0.3f);
+                Invoke("AttackComplete", 1f);
+            }                    
         }
 
     }
@@ -62,13 +60,13 @@ public class CloseWeapon : MonoBehaviour
     void AttackComplete()
     {
         ChangeAnimationState("New State");
-        isAttacking = false;
     }
 
 
 
     public void Attack()
     {
+        Debug.Log("Attack");
         Collider2D[] collider = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D c in collider)
         {

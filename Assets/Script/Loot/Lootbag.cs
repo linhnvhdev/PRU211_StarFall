@@ -9,6 +9,8 @@ public class Lootbag : MonoBehaviour
     public GameObject droppedItemPrefab;
     public List<Loot> lootList = new List<Loot>();
 
+    private EnemyObject enemy;
+
     Loot GetDroppedItem()
     {
         int randomNumber = Random.Range(1, 101); //1-100
@@ -37,7 +39,7 @@ public class Lootbag : MonoBehaviour
 
     public void InstantiateLoot(Vector3 spawnPosition)
     {
-        Loot droppedItem = GetDroppedItem();       
+        Loot droppedItem = GetDroppedItem();   
         if (droppedItem != null)
         {
             GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
