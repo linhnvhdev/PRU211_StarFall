@@ -45,7 +45,7 @@ public class Level1 : MonoBehaviour
         nextTimeToIncreaseSpeed = levelTime - timeToIncreaseSpeed;
         nextLandMineSpawnableTime = landMineWaveTime;
         // Set spawnPoint
-        spawnPointRandom = new Vector2[28];
+        spawnPointRandom = new Vector2[27];
         for (int i = (int)enemyController.SpawnZoneTopLeft.position.x; i <= enemyController.SpawnZoneTopRight.position.x; i++)
         {
             //DebugPoint(new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y));

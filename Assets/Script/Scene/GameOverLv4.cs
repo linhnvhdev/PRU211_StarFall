@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameOverScreen : MonoBehaviour
+public class GameWinLv4 : MonoBehaviour
 {
     public TextMeshProUGUI pointsText;
     public void Setup(int score)
