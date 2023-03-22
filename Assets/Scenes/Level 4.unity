@@ -2350,6 +2350,8 @@ MonoBehaviour:
   speedLimitScale: 3
   Player: {fileID: 0}
   levelPointManager: {fileID: 1031087189}
+  GameOverScreen: {fileID: 1629259404}
+  GameWinScreen: {fileID: 996916547}
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3847,7 +3849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc4e495ff846ef46987a85242345e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsText: {fileID: 0}
+  pointsText: {fileID: 1053225512}
 --- !u!114 &1629259405
 MonoBehaviour:
   m_ObjectHideFlags: 0

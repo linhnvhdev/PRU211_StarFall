@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 477894347987945216}
   - component: {fileID: 477894347987945217}
   - component: {fileID: 3734284408730564780}
+  - component: {fileID: 7393215232131495191}
   m_Layer: 3
   m_Name: Red
   m_TagString: Enemy
@@ -131,6 +132,20 @@ MonoBehaviour:
   fallSpeed: 1.5
   material: 5
   isTargeted: 0
+--- !u!114 &7393215232131495191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477894347987945223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 0}
+  lootList: []
 --- !u!1 &477894349326040471
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 477894349326040465}
   - component: {fileID: 7675907941794493816}
   - component: {fileID: -6589551848079397396}
+  - component: {fileID: 8304212349980647003}
   m_Layer: 3
   m_Name: Bomb
   m_TagString: Enemy
@@ -229,3 +245,17 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &8304212349980647003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477894349326040471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0428c38f79176d7469ce0d54cb8da37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 2373694534800253008, guid: c3af24249e8716b47a14de643f3ccf3d, type: 3}
+  lootList: []

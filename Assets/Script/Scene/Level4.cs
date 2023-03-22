@@ -41,6 +41,8 @@ public class Level4 : MonoBehaviour
     public GameObject Player;
     List<GameObject> enemyPrefabs;
     public LevelPointManager levelPointManager;
+    public GameOverScreen GameOverScreen;
+    public GameWinScreen GameWinScreen;
 
     private bool IsIncreaseSpeedWave = false;
 
@@ -69,7 +71,7 @@ public class Level4 : MonoBehaviour
         
 
         // Set spawnPoint
-        spawnPointRandom = new Vector2[28];
+        spawnPointRandom = new Vector2[27];
         for (int i = (int) enemyController.SpawnZoneTopLeft.position.x;i <= enemyController.SpawnZoneTopRight.position.x; i++)
         {
             //DebugPoint(new Vector2(i, enemyController.SpawnZoneBottomLeft.position.y));
@@ -131,6 +133,7 @@ public class Level4 : MonoBehaviour
     {
         levelPointManager.GameOver(false);
         gameOver = true;
+        GameWinScreen.Setup(levelPointManager.totalPoint);
     }
 
     private void TurnAEnemyToBomb()
@@ -140,7 +143,7 @@ public class Level4 : MonoBehaviour
         if (currentTime > nextLandMineSpawnableTime) return;
         var obj = Physics2D.OverlapCircle((Vector2)Player.transform.position, 3,enemyLayerMask);
         if (obj == null) return;
-        //Debug.Log("detect " + obj.gameObject.name);
+        Debug.Log("detect " + obj.gameObject.name);
         if (obj.gameObject.GetComponent<EnemyObject>() != null && obj.gameObject.GetComponent<Bomb>() == null)
         {
             var bomb = obj.gameObject.AddComponent<Bomb>();
@@ -210,6 +213,7 @@ public class Level4 : MonoBehaviour
     {
         Debug.Log("game over");
         gameOver = true;
+        GameOverScreen.Setup(levelPointManager.totalPoint);
         //var bomb = GameObject.FindObjectOfType<BombCore>();
         //Destroy(bomb);
     }
