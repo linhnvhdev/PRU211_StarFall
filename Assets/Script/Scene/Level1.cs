@@ -68,6 +68,8 @@ public class Level1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameOver) 
+            return;
         if (FindObjectOfType<Player>() != null)
         {
             Player = FindObjectOfType<Player>().gameObject;

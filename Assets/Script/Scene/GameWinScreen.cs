@@ -16,21 +16,26 @@ public class GameWinScreen : MonoBehaviour
     }
     public void NextLvButton()
     {
-        if(SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level1)
+        ;
+        if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level1)
         {
+           
             SceneManager.LoadScene((int)SceneIndex.Level2);
         }
         else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level2)
         {
+            
             SceneManager.LoadScene((int)SceneIndex.Level4);
         }
         else if (SceneManager.GetActiveScene().buildIndex == (int)SceneIndex.Level4)
         {
+            
             SceneManager.LoadScene((int)SceneIndex.Level3);
         }
     }
     public void ReTryButton()
     {
+        Debug.Log("Rerey");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ExitButton()
