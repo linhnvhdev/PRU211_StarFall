@@ -33,8 +33,11 @@ public class Level3 : MonoBehaviour
     public float timeToIncreaseSpeed = 10f;
     public float nextTimeToIncreaseSpeed;
     public GameObject Player = null;
+    public GameWinScreen GameWinScreen;
+    int maxPlasform = 0;
+    public GameOverScreen GameOverScreen;
 
-   // private BossLaserGun laserBeamController;
+    // private BossLaserGun laserBeamController;
 
     public LevelPointManager levelPointManager;
     private bool gameOver = false;
@@ -71,12 +74,19 @@ public class Level3 : MonoBehaviour
     }
         void Update()
     {
+        if (gameOver) return;
         if (FindObjectOfType<Player>() != null)
         {
             Player = FindObjectOfType<Player>().gameObject;
         }
+
         currentTime -= Time.deltaTime;
-        if (gameOver || IsGameOver())
+        if (currentTime <= 0)
+        {
+            GameWin();
+        }
+        
+        if (IsGameOver())
         {
             GameOver();
             return;
@@ -96,8 +106,9 @@ public class Level3 : MonoBehaviour
     }
     private void GameWin()
     {
-        levelPointManager.GameOver(false);
-        gameOver = true;
+        //levelPointManager.GameOver(false);
+        //gameOver = true;
+        GameWinScreen.Setup(levelPointManager.totalPoint);
     }
     public void ChargeLaser()
     {
@@ -127,10 +138,10 @@ public class Level3 : MonoBehaviour
     private void ShootLaserRandom()
     {
         Vector2 curSpawnPoint = (Vector2)LaserSpawnPoint[laserAndCountDownTextPointIndex].position;
-        Debug.Log("#####################################");
-        Debug.Log(LaserSpawnPoint.Length);
-        Debug.Log(Random.Range(0, LaserSpawnPoint.Length));
-        DebugPoint(curSpawnPoint);
+        //Debug.Log("#####################################");
+        //Debug.Log(LaserSpawnPoint.Length);
+        //Debug.Log(Random.Range(0, LaserSpawnPoint.Length));
+        //DebugPoint(curSpawnPoint);
 
      //   ChargeLaser();
         if (currentTime <= nextLaserSpawnableTime)
@@ -173,10 +184,13 @@ public class Level3 : MonoBehaviour
                     return true;
             }
         }
-        if (Player.GetComponent<Player>().currentHealth <= 0)
+        if (Player != null)
         {
-            Destroy(Player);
-            return true;
+            if (Player.GetComponent<Player>().currentHealth <= 0)
+            {
+                Destroy(Player);
+                return true;
+            }
         }
         return false;
     }
@@ -185,6 +199,7 @@ public class Level3 : MonoBehaviour
     {
         gameOver = true;
         Debug.Log("game over");
+        GameOverScreen.Setup(levelPointManager.totalPoint);
     }
     void DebugPoint(Vector2 point)
     {
