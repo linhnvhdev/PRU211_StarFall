@@ -161,7 +161,7 @@ public class Level3 : MonoBehaviour
         if (currentSpeedScale > speedLimitScale) fallSpeedScale = 1;
         currentSpeedScale *= fallSpeedScale;
         nextTimeToIncreaseSpeed -= timeToIncreaseSpeed;
-        if (spawnRate > 2) spawnRate -= 0.5f;
+        if (spawnRate > 1.0) spawnRate -= 0.5f;
     }
     void SpawnEnemy()
     {
